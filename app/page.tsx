@@ -64,8 +64,6 @@ export default function Home() {
             Documentation
           </a>
         </div>
-
-        <Test/>
       </main>
     </div>
   );
