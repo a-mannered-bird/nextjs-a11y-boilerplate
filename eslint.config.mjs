@@ -1,6 +1,7 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
+import jsxA11y from "eslint-plugin-jsx-a11y";
 
 const eslintConfig = defineConfig([
   ...nextVitals,
@@ -13,6 +14,7 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+  jsxA11y.flatConfigs.recommended,
 ]);
 
 export default eslintConfig;
