@@ -6,11 +6,12 @@ import {
 } from "react-aria-components/Heading";
 import { Text as AriaText, type TextProps } from "react-aria-components/Text";
 import "./Content.css";
+import type { Ref } from "react";
 
 export function Heading(props: HeadingProps) {
   return <AriaHeading {...props} />;
 }
 
-export function Text(props: TextProps) {
+export function Text(props: TextProps & { ref?: Ref<HTMLElement> }) {
   return <AriaText {...props} />;
 }

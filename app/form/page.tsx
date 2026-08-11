@@ -3,9 +3,9 @@ import SuperForm from "@/features/super-form/super-form";
 
 export default function () {
   return (
-    <div>
+    <main>
       <Heading level={1}>My super form</Heading>
       <SuperForm />
-    </div>
+    </main>
   );
 }

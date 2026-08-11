@@ -16,7 +16,6 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
-  jsxA11y.flatConfigs.recommended,
   ...storybook.configs["flat/recommended"],
 ]);
 
