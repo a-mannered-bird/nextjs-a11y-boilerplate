@@ -7,7 +7,7 @@ import { Form } from "@/components/Form";
 import { Button } from "@/components/Button";
 import { Heading, Text } from "@/components/Content";
 
-export default function () {
+export default function ({ isInModal }: { isInModal: boolean }) {
   const [{ errors, success }, formAction, pending] = useActionState(
     submitSuperForm,
     {
@@ -53,9 +53,13 @@ export default function () {
             isDisabled={pending}
             autoComplete="email"
           />
-          <Button type="submit" isDisabled={pending}>
-            Submit
-          </Button>
+
+          <div className="w-full flex justify-between">
+            {isInModal && <Button slot="close">Close</Button>}
+            <Button type="submit" isDisabled={pending}>
+              Submit
+            </Button>
+          </div>
         </Form>
       )}
 
