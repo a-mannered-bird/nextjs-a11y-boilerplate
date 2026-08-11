@@ -8,7 +8,7 @@ import {
   SliderFill
 } from 'react-aria-components/Slider';
 import {Label} from './Form';
-import './Slider.css';
+import './Slider.scss';
 
 export interface SliderProps<T> extends AriaSliderProps<T> {
   /** Label for the slider. */

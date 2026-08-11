@@ -10,7 +10,7 @@ import {ColorSlider} from './ColorSlider';
 import {ColorArea} from './ColorArea';
 import {ColorField} from './ColorField';
 import {Popover} from './Popover';
-import './ColorPicker.css';
+import './ColorPicker.scss';
 
 export interface ColorPickerProps extends Omit<AriaColorPickerProps, 'children'> {
   label?: string;

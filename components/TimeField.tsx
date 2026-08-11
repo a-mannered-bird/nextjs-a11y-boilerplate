@@ -7,7 +7,7 @@ import {
 } from 'react-aria-components/TimeField';
 import {Label, FieldError, Description} from './Form';
 import {DateInput, DateSegment} from './DateField';
-import './TimeField.css';
+import './TimeField.scss';
 
 export interface TimeFieldProps<T extends TimeValue> extends AriaTimeFieldProps<T> {
   label?: string;

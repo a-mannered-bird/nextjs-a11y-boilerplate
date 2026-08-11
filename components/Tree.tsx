@@ -16,7 +16,7 @@ import {
 import {ChevronRight, GripVertical} from 'lucide-react';
 import {Checkbox} from './Checkbox';
 import {ProgressCircle} from './ProgressCircle';
-import './Tree.css';
+import './Tree.scss';
 
 export function Tree<T>(props: TreeProps<T>) {
   return <AriaTree {...props} />;

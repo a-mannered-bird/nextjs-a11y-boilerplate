@@ -7,7 +7,7 @@ import {
 } from 'react-aria-components/ColorSlider';
 import {Label} from './Form';
 import {ColorThumb} from './ColorThumb';
-import './ColorSlider.css';
+import './ColorSlider.scss';
 
 export interface ColorSliderProps extends AriaColorSliderProps {
   label?: string;

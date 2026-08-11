@@ -9,7 +9,7 @@ import {
   type TokenFieldValue
 } from 'react-aria-components/TokenField';
 import {Label, Description} from './Form';
-import './TokenField.css';
+import './TokenField.scss';
 import type React from 'react';
 
 export interface TokenFieldProps<T extends TokenFieldValue = TokenFieldValue> extends Omit<

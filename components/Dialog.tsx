@@ -6,7 +6,7 @@ import {
   type DialogProps,
   type DialogTriggerProps
 } from 'react-aria-components/Dialog';
-import './Dialog.css';
+import './Dialog.scss';
 
 export function Dialog(props: DialogProps) {
   return <RACDialog {...props} />;

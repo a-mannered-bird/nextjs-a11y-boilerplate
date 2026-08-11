@@ -12,7 +12,7 @@ import {Label, FieldError, FieldButton, Description} from './Form';
 import {DropdownItem, DropdownListBox} from './ListBox';
 import {Popover} from './Popover';
 import {ChevronDown} from 'lucide-react';
-import './ComboBox.css';
+import './ComboBox.scss';
 
 export interface ComboBoxProps<T, M extends 'single' | 'multiple'> extends Omit<
   AriaComboBoxProps<T, M>,

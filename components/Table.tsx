@@ -26,7 +26,7 @@ import {composeRenderProps} from 'react-aria-components/composeRenderProps';
 import {Checkbox} from './Checkbox';
 import {ProgressCircle} from './ProgressCircle';
 import {ChevronUp, ChevronDown, GripVertical, ChevronRight} from 'lucide-react';
-import './Table.css';
+import './Table.scss';
 
 export function Table(props: TableProps) {
   return <AriaTable {...props} />;

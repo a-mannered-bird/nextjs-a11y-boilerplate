@@ -4,7 +4,7 @@ import {
   type ProgressBarProps as AriaProgressBarProps
 } from 'react-aria-components/ProgressBar';
 import {Label} from './Form';
-import './ProgressBar.css';
+import './ProgressBar.scss';
 
 export interface ProgressBarProps extends AriaProgressBarProps {
   label?: string;

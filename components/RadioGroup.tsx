@@ -9,8 +9,8 @@ import {
 } from 'react-aria-components/RadioGroup';
 import {composeRenderProps} from 'react-aria-components/composeRenderProps';
 import {Label, FieldError, Description} from './Form';
-import './RadioGroup.css';
-import './utilities.css';
+import './RadioGroup.scss';
+import './utilities.scss';
 
 export interface RadioGroupProps extends Omit<AriaRadioGroupProps, 'children'> {
   children?: React.ReactNode;

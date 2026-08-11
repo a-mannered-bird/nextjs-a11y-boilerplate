@@ -6,7 +6,7 @@ import {
   TooltipTrigger as AriaTooltipTrigger,
   type TooltipTriggerComponentProps
 } from 'react-aria-components/Tooltip';
-import './Tooltip.css';
+import './Tooltip.scss';
 
 export interface TooltipProps extends Omit<AriaTooltipProps, 'children'> {
   children: React.ReactNode;

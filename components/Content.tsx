@@ -5,7 +5,7 @@ import {
   type HeadingProps,
 } from "react-aria-components/Heading";
 import { Text as AriaText, type TextProps } from "react-aria-components/Text";
-import "./Content.css";
+import "./Content.scss";
 import type { Ref } from "react";
 
 export function Heading(props: HeadingProps) {

@@ -12,7 +12,7 @@ import {FieldButton} from './Form';
 import {Calendar} from './Calendar';
 import {Popover} from './Popover';
 import {ChevronDown} from 'lucide-react';
-import './DatePicker.css';
+import './DatePicker.scss';
 
 export interface DatePickerProps<T extends DateValue> extends AriaDatePickerProps<T> {
   label?: string;

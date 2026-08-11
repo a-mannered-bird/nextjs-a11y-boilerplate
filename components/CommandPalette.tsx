@@ -10,7 +10,7 @@ import {Menu} from './Menu';
 import {SearchField} from './SearchField';
 import {Modal} from './Modal';
 import {useEffect} from 'react';
-import './CommandPalette.css';
+import './CommandPalette.scss';
 
 export interface CommandPaletteProps<T>
   extends Omit<AriaAutocompleteProps, 'children'>, AriaMenuProps<T> {

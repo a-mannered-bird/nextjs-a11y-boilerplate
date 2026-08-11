@@ -4,7 +4,7 @@ import {Group, type GroupProps} from 'react-aria-components/Group';
 import {InputContext} from 'react-aria-components/Input';
 import {Label} from './Form';
 import {useId} from 'react';
-import './InputGroup.css';
+import './InputGroup.scss';
 
 interface InputGroupProps extends GroupProps {
   label?: string;

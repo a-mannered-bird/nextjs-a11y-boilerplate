@@ -14,7 +14,7 @@ import {composeRenderProps} from 'react-aria-components/composeRenderProps';
 import {Check} from 'lucide-react';
 import {Text} from './Content';
 import {ProgressCircle} from './ProgressCircle';
-import './ListBox.css';
+import './ListBox.scss';
 
 export function ListBox<T>({children, ...props}: ListBoxProps<T>) {
   return <AriaListBox {...props}>{children}</AriaListBox>;

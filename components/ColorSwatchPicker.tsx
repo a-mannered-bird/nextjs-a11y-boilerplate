@@ -6,7 +6,7 @@ import {
   type ColorSwatchPickerProps
 } from 'react-aria-components/ColorSwatchPicker';
 import {ColorSwatch} from './ColorSwatch';
-import './ColorSwatchPicker.css';
+import './ColorSwatchPicker.scss';
 
 export function ColorSwatchPicker({children, ...props}: ColorSwatchPickerProps) {
   return <AriaColorSwatchPicker {...props}>{children}</AriaColorSwatchPicker>;

@@ -12,7 +12,7 @@ import {Popover} from './Popover';
 import {Label, FieldError} from './Form';
 import {RangeCalendar} from './RangeCalendar';
 import {ChevronDown} from 'lucide-react';
-import './DateRangePicker.css';
+import './DateRangePicker.scss';
 
 export interface DateRangePickerProps<T extends DateValue> extends AriaDateRangePickerProps<T> {
   label?: string;

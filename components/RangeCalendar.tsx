@@ -12,7 +12,7 @@ import {composeRenderProps} from 'react-aria-components/composeRenderProps';
 import {Button} from './Button';
 import {ChevronLeft, ChevronRight} from 'lucide-react';
 import {CalendarGrid} from './Calendar';
-import './RangeCalendar.css';
+import './RangeCalendar.scss';
 
 export interface RangeCalendarProps<T extends DateValue> extends AriaRangeCalendarProps<T> {
   errorMessage?: string;

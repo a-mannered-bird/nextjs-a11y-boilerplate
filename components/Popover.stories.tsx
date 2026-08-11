@@ -3,7 +3,7 @@ import { Button } from "./Button";
 import { DialogTrigger } from "./Dialog";
 import { Heading } from "./Content";
 import { HelpCircle } from "lucide-react";
-import "./styles.css";
+import "./styles.scss";
 import type { Meta, StoryFn } from "@storybook/react";
 
 const meta: Meta<typeof Popover> = {

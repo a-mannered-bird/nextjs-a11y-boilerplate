@@ -12,7 +12,7 @@ import {
 import {Text} from './Content';
 import {ChevronLeft, ChevronRight} from 'lucide-react';
 import {Button} from './Button';
-import './Calendar.css';
+import './Calendar.scss';
 
 export interface CalendarProps<T extends DateValue> extends AriaCalendarProps<T> {
   errorMessage?: string;

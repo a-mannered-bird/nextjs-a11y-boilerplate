@@ -13,7 +13,7 @@ import {
   type TabPanelsProps
 } from 'react-aria-components/Tabs';
 import {composeRenderProps} from 'react-aria-components/composeRenderProps';
-import './Tabs.css';
+import './Tabs.scss';
 
 export function Tabs(props: TabsProps) {
   return <RACTabs {...props} />;

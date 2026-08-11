@@ -1,7 +1,7 @@
 "use client";
 import { Link as RACLink, type LinkProps } from "react-aria-components/Link";
 import NextLink from "next/link";
-import "./Link.css";
+import "./Link.scss";
 
 export function Link(props: LinkProps) {
   return (

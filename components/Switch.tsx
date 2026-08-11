@@ -5,7 +5,7 @@ import {
   type SwitchFieldProps,
   type ValidationResult
 } from 'react-aria-components/Switch';
-import './Switch.css';
+import './Switch.scss';
 import {Description, FieldError} from './Form';
 import type {ReactNode} from 'react';
 

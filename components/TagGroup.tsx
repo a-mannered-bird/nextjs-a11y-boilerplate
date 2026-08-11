@@ -11,7 +11,7 @@ import {
 import {Description, Label} from './Form';
 import {Text} from './Content';
 import {X} from 'lucide-react';
-import './TagGroup.css';
+import './TagGroup.scss';
 
 export interface TagGroupProps<T>
   extends

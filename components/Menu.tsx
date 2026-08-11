@@ -18,7 +18,7 @@ import {
 import {Popover} from './Popover';
 import {Text} from './Content';
 import React from 'react';
-import './Menu.css';
+import './Menu.scss';
 
 export function MenuTrigger(props: MenuTriggerProps) {
   let [trigger, menu] = React.Children.toArray(props.children) as [

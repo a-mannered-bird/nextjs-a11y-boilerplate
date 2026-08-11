@@ -5,7 +5,7 @@ import {
   type CheckboxFieldProps,
   type ValidationResult
 } from 'react-aria-components/Checkbox';
-import './Checkbox.css';
+import './Checkbox.scss';
 import {Description, FieldError} from './Form';
 import type {ReactNode} from 'react';
 
