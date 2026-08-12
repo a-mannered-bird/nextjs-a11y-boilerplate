@@ -1,11 +1,13 @@
 @import "./theme";
 
 .react-aria-ModalOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: var(--page-width);
-  height: var(--page-height);
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-4);
+  box-sizing: border-box;
   background: rgba(0 0 0 / 0.5);
   overflow: clip;
   z-index: 100;
@@ -22,11 +24,8 @@
 }
 
 .react-aria-Modal {
-  position: sticky;
-  max-height: calc(var(--visual-viewport-height) * 0.9);
-  top: calc(var(--visual-viewport-height) / 2);
-  margin-left: 50vw;
-  translate: -50% -50%;
+  max-height: 90dvh;
+  overflow: auto;
   box-shadow: 0 8px 32px rgba(0 0 0 / 0.2);
   border-radius: var(--radius-xl);
   background: var(--overlay-background);
