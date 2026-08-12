@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { LOCALE } from "@/app/locale";
 
 const MILESTONE_INTERVAL = 10_000;
 
@@ -18,7 +19,7 @@ export function SignatureCounter() {
 
       if (next >= lastAnnouncedRef.current + MILESTONE_INTERVAL) {
         lastAnnouncedRef.current = next;
-        setAnnouncement(`${next.toLocaleString("de-DE")} signatures reached.`);
+        setAnnouncement(`${next.toLocaleString(LOCALE)} signatures reached.`);
       }
     }, 200);
 
@@ -29,7 +30,7 @@ export function SignatureCounter() {
 
   return (
     <>
-      <p>{count.toLocaleString("de-DE")} signatures</p>
+      <p>{count.toLocaleString(LOCALE)} signatures</p>
       <p role="status" className="visually-hidden">
         {announcement}
       </p>

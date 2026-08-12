@@ -1,3 +1,5 @@
+import type { Metadata } from "next";
+
 import { Button } from "@/components/react-aria/Button";
 import { Heading } from "@/components/react-aria/Content";
 import { Dialog, DialogTrigger } from "@/components/react-aria/Dialog";
@@ -11,6 +13,10 @@ import { Modal } from "@/components/react-aria/Modal";
 import { SuperForm } from "@/features/super-form/super-form";
 import { SignatureCounter } from "./SignatureCounter";
 import styles from "./page.module.scss";
+
+export const metadata: Metadata = {
+  title: "My super form",
+};
 
 export default function FormPage() {
   return (
@@ -45,7 +51,17 @@ export default function FormPage() {
               Enter your information to subscribe to our newsletter and receive
               updates about new features and announcements.
             </p>
-            <SuperForm isInModal />
+            {/* The dialog owns its dismiss control and hands it to the form,
+                which places it in the actions row. headingLevel follows the
+                h2 title above. */}
+            <SuperForm
+              headingLevel={3}
+              actions={
+                <Button slot="close" variant="secondary">
+                  Close
+                </Button>
+              }
+            />
           </Dialog>
         </Modal>
       </DialogTrigger>

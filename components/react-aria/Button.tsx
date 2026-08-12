@@ -20,7 +20,11 @@ export function Button(props: ButtonProps) {
   return (
     <RACButton
       {...props}
-      className="react-aria-Button button-base"
+      className={composeRenderProps(props.className, (className) =>
+        className
+          ? `react-aria-Button button-base ${className}`
+          : "react-aria-Button button-base",
+      )}
       data-variant={props.variant || "primary"}
     >
       {composeRenderProps(props.children, (children, { isPending }) => (

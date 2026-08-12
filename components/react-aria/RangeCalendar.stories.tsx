@@ -5,6 +5,15 @@ const meta: Meta<typeof RangeCalendar> = {
   component: RangeCalendar,
   parameters: {
     layout: "centered",
+    a11y: {
+      options: {
+        rules: {
+          // Same isolation artifact as Calendar: the month nav is a bare
+          // <header>, a `banner` landmark only outside a sectioning element.
+          "landmark-banner-is-top-level": { enabled: false },
+        },
+      },
+    },
   },
   tags: ["autodocs"],
 };

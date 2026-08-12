@@ -49,3 +49,21 @@ to the files as distributed by Adobe:
    - `Toast.stories.tsx`: the hardcoded `title: "Toast"` removed so Storybook's
      automatic titling groups it under `react-aria/` with the other stories in
      this directory, rather than alongside the application's own.
+
+4. `Button.tsx`: the hardcoded `className` is now composed with the caller's
+   `className` instead of replacing it. As distributed, any class name passed to
+   a Button was silently dropped. The classes the kit applies are unchanged.
+
+5. Accessibility test settings, after the project's Storybook a11y checks were
+   made blocking by default. No component behaviour was changed:
+   - `Tooltip.stories.tsx`: `aria-label="Save"` added to the icon-only demo
+     button, which had no accessible name. A tooltip labels on hover and focus
+     but does not name the element.
+   - `Meter.stories.tsx`: the `aria-allowed-attr` axe rule disabled for this
+     story, with the reason recorded inline. It is a known axe false positive
+     against react-aria's `role="meter progressbar"`.
+   - `Calendar.stories.tsx`, `RangeCalendar.stories.tsx`: the
+     `landmark-banner-is-top-level` axe rule disabled for these stories. Both
+     render a bare `<header>`, which is a `banner` landmark only when rendered
+     outside a sectioning element — an artifact of the story canvas, not of the
+     component in a page.
