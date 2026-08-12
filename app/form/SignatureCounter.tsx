@@ -7,10 +7,6 @@ const MILESTONE_INTERVAL = 10_000;
 export function SignatureCounter() {
   const [count, setCount] = useState(0);
   const [announcement, setAnnouncement] = useState("");
-
-  // The timer callback needs the current total to decide whether a milestone was
-  // crossed, which a state updater cannot tell it. Updaters must stay pure, so
-  // the running total is tracked alongside the rendered state.
   const totalRef = useRef(0);
   const lastAnnouncedRef = useRef(0);
 
@@ -20,8 +16,6 @@ export function SignatureCounter() {
       totalRef.current = next;
       setCount(next);
 
-      // Announce milestones only. Announcing every tick would make the live
-      // region unusable with a screen reader.
       if (next >= lastAnnouncedRef.current + MILESTONE_INTERVAL) {
         lastAnnouncedRef.current = next;
         setAnnouncement(`${next.toLocaleString("de-DE")} signatures reached.`);
