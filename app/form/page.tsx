@@ -1,13 +1,13 @@
-import { Button } from "@/components/Button";
-import { Heading } from "@/components/Content";
-import { Dialog, DialogTrigger } from "@/components/Dialog";
+import { Button } from "@/components/react-aria/Button";
+import { Heading } from "@/components/react-aria/Content";
+import { Dialog, DialogTrigger } from "@/components/react-aria/Dialog";
 import {
   Disclosure,
   DisclosureHeader,
   DisclosurePanel,
-} from "@/components/Disclosure";
-import { DisclosureGroup } from "@/components/DisclosureGroup";
-import { Modal } from "@/components/Modal";
+} from "@/components/react-aria/Disclosure";
+import { DisclosureGroup } from "@/components/react-aria/DisclosureGroup";
+import { Modal } from "@/components/react-aria/Modal";
 import SuperForm from "@/features/super-form/super-form";
 import SignatureCounter from "./SignatureCounter";
 

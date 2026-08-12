@@ -1,11 +1,11 @@
 "use client";
 
-import { TextField } from "@/components/TextField";
+import { TextField } from "@/components/react-aria/TextField";
 import { useActionState, useEffect, useRef } from "react";
 import { submitSuperForm } from "./action";
-import { Form } from "@/components/Form";
-import { Button } from "@/components/Button";
-import { Heading, Text } from "@/components/Content";
+import { Form } from "@/components/react-aria/Form";
+import { Button } from "@/components/react-aria/Button";
+import { Heading, Text } from "@/components/react-aria/Content";
 
 export default function ({ isInModal }: { isInModal: boolean }) {
   const [{ errors, success }, formAction, pending] = useActionState(

@@ -1,0 +1,23 @@
+React Aria Components starter kit
+Copyright 2022 Adobe. All rights reserved.
+
+This directory contains vendored third-party code: the "vanilla CSS" variant of
+Adobe's downloadable React Aria Components starter kit, obtained from
+https://react-spectrum.adobe.com/react-aria/ and part of the adobe/react-spectrum
+project (https://github.com/adobe/react-spectrum).
+
+Licensed under the Apache License, Version 2.0. A copy of the License is
+included in this directory as ./LICENSE, and is also available at
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software distributed
+under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied.
+
+Modifications made to the original files
+----------------------------------------
+As required by section 4(b) of the License, the following changes have been made
+to the files as distributed by Adobe:
+
+1. Stylesheets were renamed from `.css` to `.scss` and the corresponding imports
+   in the component files were updated. The CSS content itself was unchanged.
