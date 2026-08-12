@@ -1,5 +1,4 @@
-@import "./theme";
-@import "./TextField";
+@use "./TextField";
 
 .react-aria-SearchField {
   display: grid;

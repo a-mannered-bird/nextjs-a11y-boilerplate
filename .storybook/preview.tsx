@@ -1,5 +1,11 @@
 import type { Preview } from "@storybook/nextjs-vite";
 
+// The root layout is not rendered here, so the global stylesheets it loads have
+// to be imported explicitly or every story renders untokenised.
+import "../components/react-aria/theme.scss";
+import "../components/react-aria/utilities.scss";
+import "../app/globals.scss";
+
 const preview: Preview = {
   parameters: {
     controls: {

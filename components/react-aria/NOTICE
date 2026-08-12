@@ -21,3 +21,10 @@ to the files as distributed by Adobe:
 
 1. Stylesheets were renamed from `.css` to `.scss` and the corresponding imports
    in the component files were updated. The CSS content itself was unchanged.
+
+2. The per-stylesheet `@import "./theme"` and `@import "./utilities"` rules were
+   removed. Both files are now loaded once from the application's root layout
+   instead, so their contents are no longer duplicated into every CSS chunk.
+   Where a stylesheet depended on another component's stylesheet (`./Form`,
+   `./TextField`), the `@import` was changed to `@use`, since Sass `@import` is
+   deprecated. No style declarations were added, removed or altered.

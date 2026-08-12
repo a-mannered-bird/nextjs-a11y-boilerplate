@@ -22,7 +22,12 @@ because that is how the kit is built. Application code does not follow this
 convention: it uses CSS Modules, so styles stay scoped to the component that
 owns them.
 
-Design tokens for the whole app are defined here in `theme.scss`.
+Design tokens for the whole app are defined here in `theme.scss`. It and
+`utilities.scss` are imported **once**, from `app/layout.tsx`, and once more from
+`.storybook/preview.tsx` because Storybook does not render the root layout.
+Individual stylesheets in this directory must not import them again: doing so
+duplicated the full token block into all 53 CSS chunks, roughly 700 KB of
+repeated custom-property declarations.
 
 ## Editing this directory
 

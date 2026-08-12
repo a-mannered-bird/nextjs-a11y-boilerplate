@@ -10,6 +10,7 @@ import { DisclosureGroup } from "@/components/react-aria/DisclosureGroup";
 import { Modal } from "@/components/react-aria/Modal";
 import SuperForm from "@/features/super-form/super-form";
 import SignatureCounter from "./SignatureCounter";
+import styles from "./page.module.scss";
 
 export default function () {
   return (
@@ -35,7 +36,7 @@ export default function () {
         <Modal>
           <Dialog>
             <Heading slot="title">Subscribe to our newsletter</Heading>
-            <p className="mb-6">
+            <p className={styles.dialogIntro}>
               Enter your information to subscribe to our newsletter and receive
               updates about new features and announcements.
             </p>

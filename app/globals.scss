@@ -1,3 +1,12 @@
+/*
+ * App-level base styles: tokens, a minimal reset, and the handful of global
+ * utilities that are genuinely global concerns. Component styles do not live
+ * here — application components use CSS Modules.
+ *
+ * Design tokens come from components/react-aria/theme.scss, imported once in
+ * the root layout.
+ */
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -8,6 +17,41 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+
+  html {
+    color-scheme: dark;
+  }
+}
+
+/* --- Reset ---------------------------------------------------------------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Spacing is the responsibility of the component that owns the layout, so
+   default document margins are removed rather than adjusted. */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+ul[role="list"],
+ol[role="list"] {
+  padding: 0;
+  list-style: none;
 }
 
 html {
@@ -26,9 +70,25 @@ body {
   flex-direction: column;
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /* Matches the font stack the react-aria stylesheets use throughout. */
+  font-family: system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
 }
 
 a {
@@ -36,8 +96,41 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* --- Focus --------------------------------------------------------------- */
+
+/* Never remove an outline without replacing it. --focus-ring-color resolves to
+   the system Highlight colour under forced-colors, so this holds up there too. */
+:focus-visible {
+  outline: 2px solid var(--focus-ring-color);
+  outline-offset: 2px;
+}
+
+/* --- Utilities ----------------------------------------------------------- */
+
+/* Removes an element from view while leaving it in the accessibility tree, for
+   live regions and other screen-reader-only content. Global rather than a
+   module because it is a base-layer concern, like the reset above. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- Motion -------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -6,6 +6,7 @@ import { submitSuperForm } from "./action";
 import { Form } from "@/components/react-aria/Form";
 import { Button } from "@/components/react-aria/Button";
 import { Heading, Text } from "@/components/react-aria/Content";
+import styles from "./super-form.module.scss";
 
 export default function ({ isInModal }: { isInModal: boolean }) {
   const [{ errors, success }, formAction, pending] = useActionState(
@@ -54,7 +55,7 @@ export default function ({ isInModal }: { isInModal: boolean }) {
             autoComplete="email"
           />
 
-          <div className="w-full flex justify-between">
+          <div className={styles.actions}>
             {isInModal && (
               <Button slot="close" variant="secondary">
                 Close

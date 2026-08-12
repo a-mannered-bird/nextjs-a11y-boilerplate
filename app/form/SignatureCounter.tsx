@@ -30,7 +30,7 @@ export default function () {
   return (
     <>
       <p aria-hidden="true">{count.toLocaleString("de-DE")} signatures</p>
-      <p role="status" className="sr-only">
+      <p role="status" className="visually-hidden">
         {announcement}
       </p>
     </>
