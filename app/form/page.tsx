@@ -15,8 +15,8 @@ import styles from "./page.module.scss";
 export default function FormPage() {
   return (
     <main>
-      <Heading level={1}>My super form</Heading>
-      <Heading level={2}>Q&A</Heading>
+      <h1>My super form</h1>
+      <h2>Q&A</h2>
       <DisclosureGroup defaultExpandedKeys={["personal"]}>
         <Disclosure id="personal">
           <DisclosureHeader>Personal Information</DisclosureHeader>
@@ -35,7 +35,12 @@ export default function FormPage() {
         <Button>Sign up</Button>
         <Modal>
           <Dialog>
-            <Heading slot="title">Subscribe to our newsletter</Heading>
+            {/* Stays a react-aria Heading: the title slot is what Dialog uses to
+                label itself via aria-labelledby. Level is explicit so the
+                dialog's own outline starts at h2 rather than RAC's default h3. */}
+            <Heading level={2} slot="title">
+              Subscribe to our newsletter
+            </Heading>
             <p className={styles.dialogIntro}>
               Enter your information to subscribe to our newsletter and receive
               updates about new features and announcements.

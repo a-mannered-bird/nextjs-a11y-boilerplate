@@ -5,7 +5,6 @@ import { useActionState, useEffect, useRef } from "react";
 import { submitSuperForm } from "./action";
 import { Form } from "@/components/react-aria/Form";
 import { Button } from "@/components/react-aria/Button";
-import { Heading, Text } from "@/components/react-aria/Content";
 import styles from "./super-form.module.scss";
 
 export function SuperForm({ isInModal }: { isInModal: boolean }) {
@@ -18,12 +17,12 @@ export function SuperForm({ isInModal }: { isInModal: boolean }) {
   );
   const hasErrors = Object.keys(errors).length > 0;
 
-  const errorSummaryRef = useRef<HTMLDivElement>(null);
+  const errorSummaryRef = useRef<HTMLHeadingElement>(null);
   useEffect(() => {
     if (Object.keys(errors).length > 0) errorSummaryRef.current?.focus();
   }, [errors]);
 
-  const successRef = useRef<HTMLElement>(null);
+  const successRef = useRef<HTMLParagraphElement>(null);
   useEffect(() => {
     if (success) successRef.current?.focus();
   }, [success]);
@@ -33,11 +32,13 @@ export function SuperForm({ isInModal }: { isInModal: boolean }) {
       {!success && (
         <Form action={formAction} validationErrors={errors}>
           {hasErrors && (
-            <div ref={errorSummaryRef} role="alert" tabIndex={-1}>
-              <Heading>Unable to submit</Heading>
-              <Text elementType="p">
+            <div>
+              <h3 ref={errorSummaryRef} tabIndex={-1}>
+                Unable to submit
+              </h3>
+              <p>
                 Please fix the validation errors below, and re-submit the form.
-              </Text>
+              </p>
             </div>
           )}
           <TextField
@@ -69,9 +70,9 @@ export function SuperForm({ isInModal }: { isInModal: boolean }) {
       )}
 
       {success && (
-        <Text ref={successRef} role="status" tabIndex={-1}>
+        <p ref={successRef} tabIndex={-1}>
           Form submitted!
-        </Text>
+        </p>
       )}
     </>
   );

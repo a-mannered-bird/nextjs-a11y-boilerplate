@@ -54,6 +54,42 @@ ol[role="list"] {
   list-style: none;
 }
 
+/* Headings are plain elements in Server Components, so they do not pick up the
+   kit's .react-aria-Heading class. Same type scale, applied to the elements
+   themselves, so a heading looks identical whichever renders it. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+}
+
+h1 {
+  font-size: calc(1.75 * var(--font-size));
+}
+
+h2 {
+  font-size: calc(1.5 * var(--font-size));
+}
+
+h3 {
+  font-size: calc(1.25 * var(--font-size));
+}
+
+h4 {
+  font-size: var(--font-size-lg);
+}
+
+h5 {
+  font-size: var(--font-size);
+}
+
+h6 {
+  font-size: var(--font-size-sm);
+}
+
 html {
   height: 100%;
 }
