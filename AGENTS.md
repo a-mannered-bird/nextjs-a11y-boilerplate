@@ -36,6 +36,16 @@ Next.js App Router, React 19, TypeScript. Run `npm run verify` before any commit
 - The one exception is a dialog title, which must be the kit's `Heading` with
   `slot="title"` because that is what `Dialog` uses for its `aria-labelledby`.
 
+## Types
+
+Type assertions used to silence the compiler are treated as defects rather than
+style. Use type guards, rather than assertions.
+
+An assertion only silences the compiler, while a guard performs a real runtime
+check, so an assertion that turns out to be wrong fails later and further away
+from its cause. Discriminate on a property unique to the target type, and when a
+value may be absent, narrow and fall back rather than asserting it away.
+
 ## Styling
 
 Two tiers, deliberately:
@@ -101,11 +111,17 @@ Three layers, each with a different job:
 - `npm run typecheck` is `next typegen && tsc --noEmit`. The `typegen` step is not
   optional: `tsconfig.json` includes `.next/types/**`, so a bare `tsc` reports
   phantom errors from stale route types after you add or delete a route.
-- `formData.get()` returns `FormDataEntryValue | null`. Narrow it with a guard;
-  do not assert it to `string`.
 
 ## Things we deliberately do not do
 
-Abstractions with one call site. Barrel files. `any`, or assertions used to
-silence the compiler. New dependencies without discussion. Comments that restate
-the code.
+- Abstractions with one call site. A generic `<Field>` system for four fields is
+  harder to read than four fields.
+- Custom hooks with a single call site, for the same reason.
+- State machines for simple form state. `useActionState` and a boolean cover it.
+- Barrel files (`index.ts` re-exports).
+- `any`. Assertions are covered under Types above.
+- New dependencies without discussion. Ask first.
+- `useEffect` where a derived value or an event handler would do. A timer callback
+  is already an event handler, not a reason for a second effect.
+- Refactoring working code because it could be cleaner. Leave it, or raise it.
+- Comments that restate the code. Comments explain why, or do not exist.

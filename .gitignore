@@ -50,3 +50,7 @@ storybook-static
 # agent tooling: launch.json is shared, local settings and worktrees are not
 .claude/*
 !.claude/launch.json
+
+# personal working notes, not project conventions
+CLAUDE.local.md
+DECISIONS.md

@@ -24,6 +24,10 @@ npm run dev
 
 CI runs the same commands in the same order (`.github/workflows/ci.yml`).
 
+**[docs/code-quality.md](docs/code-quality.md)** catalogues every guardrail in the
+repository, what each one catches, where it is configured, and what is
+deliberately left unenforced.
+
 ## How accessibility is enforced
 
 Three independent layers, because each catches what the others cannot.
