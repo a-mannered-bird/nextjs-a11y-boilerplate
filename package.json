@@ -51,5 +51,8 @@
     "typescript": "^5",
     "vite": "^8.2.1",
     "vitest": "^4.1.10"
+  },
+  "overrides": {
+    "valibot": "^1.4.2"
   }
 }
