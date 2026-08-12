@@ -15,6 +15,7 @@ export default function () {
   return (
     <main>
       <Heading level={1}>My super form</Heading>
+      <Heading level={2}>Q&A</Heading>
       <DisclosureGroup defaultExpandedKeys={["personal"]}>
         <Disclosure id="personal">
           <DisclosureHeader>Personal Information</DisclosureHeader>
