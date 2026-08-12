@@ -55,7 +55,11 @@ export default function ({ isInModal }: { isInModal: boolean }) {
           />
 
           <div className="w-full flex justify-between">
-            {isInModal && <Button slot="close">Close</Button>}
+            {isInModal && (
+              <Button slot="close" variant="secondary">
+                Close
+              </Button>
+            )}
             <Button type="submit" isDisabled={pending}>
               Submit
             </Button>
