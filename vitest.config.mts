@@ -11,6 +11,17 @@ export default defineConfig({
   test: {
     projects: [
       {
+        // Logic only: validation rules, formatters, anything decidable without a
+        // DOM. Component behaviour belongs in a story, which runs in a real
+        // browser with axe, so `.test.ts` here is deliberate and `.test.tsx` is
+        // not matched.
+        test: {
+          name: "unit",
+          environment: "node",
+          include: ["{app,features}/**/*.test.ts"],
+        },
+      },
+      {
         extends: true,
         plugins: [
           // The plugin will run tests for the stories defined in your Storybook config

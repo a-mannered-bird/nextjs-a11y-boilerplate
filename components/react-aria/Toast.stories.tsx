@@ -10,7 +10,6 @@ interface ToastStoryArgs {
 }
 
 const meta: Meta<ToastStoryArgs> = {
-  title: "Toast",
   parameters: {
     layout: "centered",
   },

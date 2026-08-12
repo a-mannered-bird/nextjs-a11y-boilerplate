@@ -46,3 +46,6 @@ to the files as distributed by Adobe:
    - `CommandPalette.tsx`, `Dialog.stories.tsx`, `Modal.stories.tsx`: the three
      `autoFocus` props annotated with a justified `jsx-a11y/no-autofocus`
      suppression. The props themselves were not changed.
+   - `Toast.stories.tsx`: the hardcoded `title: "Toast"` removed so Storybook's
+     automatic titling groups it under `react-aria/` with the other stories in
+     this directory, rather than alongside the application's own.
