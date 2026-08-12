@@ -1,5 +1,5 @@
 import { Checkbox } from "./Checkbox";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof Checkbox> = {
   component: Checkbox,

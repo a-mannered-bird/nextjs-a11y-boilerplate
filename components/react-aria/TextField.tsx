@@ -1,16 +1,18 @@
-'use client';
+"use client";
 import {
   Input,
   TextField as AriaTextField,
   TextArea as AriaTextArea,
   type TextFieldProps as AriaTextFieldProps,
-  type ValidationResult
-} from 'react-aria-components/TextField';
-import {Label, FieldError, Description} from './Form';
-import './TextField.scss';
-import type React from 'react';
+  type ValidationResult,
+} from "react-aria-components/TextField";
+import { Label, FieldError, Description } from "./Form";
+import "./TextField.scss";
+import type React from "react";
 
-export interface TextFieldProps<T = HTMLInputElement> extends AriaTextFieldProps {
+export interface TextFieldProps<
+  T = HTMLInputElement,
+> extends AriaTextFieldProps {
   label?: string;
   description?: string;
   errorMessage?: string | ((validation: ValidationResult) => string);
@@ -29,7 +31,11 @@ export function TextField({
   return (
     <AriaTextField {...props}>
       {label && <Label>{label}</Label>}
-      <Input ref={inputRef} className="react-aria-Input inset" placeholder={placeholder} />
+      <Input
+        ref={inputRef}
+        className="react-aria-Input inset"
+        placeholder={placeholder}
+      />
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
     </AriaTextField>

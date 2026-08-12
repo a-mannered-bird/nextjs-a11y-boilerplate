@@ -1,6 +1,5 @@
 import { Breadcrumbs, Breadcrumb } from "./Breadcrumbs";
-import { Link } from "./Link";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof Breadcrumbs> = {
   component: Breadcrumbs,

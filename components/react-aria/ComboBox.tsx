@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import {
   ComboBox as AriaComboBox,
   type ComboBoxProps as AriaComboBoxProps,
@@ -6,17 +6,17 @@ import {
   Input,
   type ListBoxItemProps,
   type ListBoxProps,
-  type ValidationResult
-} from 'react-aria-components/ComboBox';
-import {Label, FieldError, FieldButton, Description} from './Form';
-import {DropdownItem, DropdownListBox} from './ListBox';
-import {Popover} from './Popover';
-import {ChevronDown} from 'lucide-react';
-import './ComboBox.scss';
+  type ValidationResult,
+} from "react-aria-components/ComboBox";
+import { Label, FieldError, FieldButton, Description } from "./Form";
+import { DropdownItem, DropdownListBox } from "./ListBox";
+import { Popover } from "./Popover";
+import { ChevronDown } from "lucide-react";
+import "./ComboBox.scss";
 
-export interface ComboBoxProps<T, M extends 'single' | 'multiple'> extends Omit<
+export interface ComboBoxProps<T, M extends "single" | "multiple"> extends Omit<
   AriaComboBoxProps<T, M>,
-  'children'
+  "children"
 > {
   label?: string;
   description?: string | null;
@@ -25,7 +25,7 @@ export interface ComboBoxProps<T, M extends 'single' | 'multiple'> extends Omit<
   placeholder?: string;
 }
 
-export function ComboBox<T, M extends 'single' | 'multiple' = 'single'>({
+export function ComboBox<T, M extends "single" | "multiple" = "single">({
   label,
   description,
   errorMessage,
@@ -42,7 +42,9 @@ export function ComboBox<T, M extends 'single' | 'multiple' = 'single'>({
           <ChevronDown />
         </FieldButton>
       </div>
-      {props.selectionMode === 'multiple' && <ComboBoxValue placeholder="No items selected" />}
+      {props.selectionMode === "multiple" && (
+        <ComboBoxValue placeholder="No items selected" />
+      )}
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>
       <Popover hideArrow className="combobox-popover">

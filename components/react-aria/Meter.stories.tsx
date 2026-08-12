@@ -1,5 +1,5 @@
 import { Meter } from "./Meter";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof Meter> = {
   component: Meter,

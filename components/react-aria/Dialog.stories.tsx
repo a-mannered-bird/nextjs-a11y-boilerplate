@@ -3,7 +3,7 @@ import { Button } from "./Button";
 import { Modal } from "./Modal";
 import { TextField } from "./TextField";
 import { Heading } from "./Content";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof Dialog> = {
   component: Dialog,
@@ -24,6 +24,12 @@ export const Example: Story = (args) => (
         <form>
           <Heading slot="title">Sign up</Heading>
           <TextField
+            // Modal dialog opened by user action, not a page load. The APG dialog
+            // pattern sets initial focus on the first input when the dialog is
+            // short and form-like, so this is the prescribed behaviour rather than
+            // the unprompted focus move the rule guards against.
+            // https://www.w3.org/WAI/ARIA/apg/patterns/dialog-modal/
+            // eslint-disable-next-line jsx-a11y/no-autofocus
             autoFocus
             label="First Name"
             placeholder="Enter your first name"

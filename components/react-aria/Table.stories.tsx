@@ -1,5 +1,5 @@
 import { Column, Row, Table, TableHeader, TableBody, Cell } from "./Table";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof Table> = {
   component: Table,

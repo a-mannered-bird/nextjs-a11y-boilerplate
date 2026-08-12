@@ -1,5 +1,5 @@
 import { ComboBox, ComboBoxItem } from "./ComboBox";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof ComboBox> = {
   component: ComboBox,

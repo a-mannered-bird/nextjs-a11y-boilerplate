@@ -1,6 +1,6 @@
 import { ListBox, ListBoxItem, ListBoxSection } from "./ListBox";
 import { Header } from "react-aria-components/Header";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof ListBox> = {
   component: ListBox,
@@ -27,7 +27,7 @@ Example.args = {
   selectionMode: "single",
 };
 
-export const Sections: Story = (args) => (
+export const Sections: Story = () => (
   <ListBox aria-label="Sandwich contents" selectionMode="multiple">
     <ListBoxSection>
       <Header>Veggies</Header>

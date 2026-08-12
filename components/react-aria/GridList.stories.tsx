@@ -4,7 +4,7 @@ import {
   GridListSection,
   GridListHeader,
 } from "react-aria-components/GridList";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof GridList> = {
   component: GridList,
@@ -26,6 +26,7 @@ export const Example: Story = (args) => (
     <GridListItem textValue="Desert Sunset">
       <img
         src="https://images.unsplash.com/photo-1705034598432-1694e203cdf3?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
         width={600}
         height={400}
       />
@@ -35,6 +36,7 @@ export const Example: Story = (args) => (
     <GridListItem textValue="Hiking Trail">
       <img
         src="https://images.unsplash.com/photo-1722233987129-61dc344db8b6?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
         width={600}
         height={900}
       />
@@ -44,6 +46,7 @@ export const Example: Story = (args) => (
     <GridListItem textValue="Lion">
       <img
         src="https://images.unsplash.com/photo-1629812456605-4a044aa38fbc?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
         width={600}
         height={899}
       />
@@ -53,6 +56,7 @@ export const Example: Story = (args) => (
     <GridListItem textValue="Mountain Sunrise">
       <img
         src="https://images.unsplash.com/photo-1722172118908-1a97c312ce8c?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
         width={600}
         height={900}
       />
@@ -62,6 +66,7 @@ export const Example: Story = (args) => (
     <GridListItem textValue="Giraffe tongue">
       <img
         src="https://images.unsplash.com/photo-1574870111867-089730e5a72b?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
         width={600}
         height={900}
       />
@@ -71,6 +76,7 @@ export const Example: Story = (args) => (
     <GridListItem textValue="Golden Hour">
       <img
         src="https://images.unsplash.com/photo-1718378037953-ab21bf2cf771?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
         width={600}
         height={402}
       />
@@ -80,6 +86,7 @@ export const Example: Story = (args) => (
     <GridListItem textValue="Architecture">
       <img
         src="https://images.unsplash.com/photo-1721661657253-6621d52db753?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDYxfE04alZiTGJUUndzfHxlbnwwfHx8fHw%3D"
+        alt=""
         width={600}
         height={900}
       />
@@ -89,6 +96,7 @@ export const Example: Story = (args) => (
     <GridListItem textValue="Peeking leopard">
       <img
         src="https://images.unsplash.com/photo-1456926631375-92c8ce872def?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
         width={600}
         height={400}
       />
@@ -98,6 +106,7 @@ export const Example: Story = (args) => (
     <GridListItem textValue="Roofs">
       <img
         src="https://images.unsplash.com/photo-1721598359121-363311b3b263?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHx0b3BpYy1mZWVkfDc0fE04alZiTGJUUndzfHxlbnwwfHx8fHw%3D"
+        alt=""
         width={600}
         height={900}
       />
@@ -107,6 +116,7 @@ export const Example: Story = (args) => (
     <GridListItem textValue="Half Dome Deer">
       <img
         src="https://images.unsplash.com/photo-1472396961693-142e6e269027?q=80&w=600&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+        alt=""
         width={600}
         height={990}
       />
@@ -133,6 +143,7 @@ export const Sections: Story = (args) => (
       <GridListItem textValue="Apple">
         <img
           src="https://images.unsplash.com/photo-1630563451961-ac2ff27616ab?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
           width={600}
           height={400}
         />
@@ -142,6 +153,7 @@ export const Sections: Story = (args) => (
       <GridListItem textValue="Peach">
         <img
           src="https://images.unsplash.com/photo-1642372849486-f88b963cb734?q=80&w=2858&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
           width={600}
           height={900}
         />
@@ -151,6 +163,7 @@ export const Sections: Story = (args) => (
       <GridListItem textValue="Blueberry">
         <img
           src="https://images.unsplash.com/photo-1606757389667-45c2024f9fa4?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
           width={600}
           height={900}
         />
@@ -163,6 +176,7 @@ export const Sections: Story = (args) => (
       <GridListItem textValue="Broccoli">
         <img
           src="https://images.unsplash.com/photo-1685504445355-0e7bdf90d415?q=80&w=928&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
           width={600}
           height={900}
         />
@@ -172,6 +186,7 @@ export const Sections: Story = (args) => (
       <GridListItem textValue="Brussels Sprouts">
         <img
           src="https://images.unsplash.com/photo-1685504507286-dc290728c01a?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
           width={600}
           height={900}
         />
@@ -181,6 +196,7 @@ export const Sections: Story = (args) => (
       <GridListItem textValue="Peas">
         <img
           src="https://images.unsplash.com/photo-1587411768345-867e228218c8?q=80&w=1160&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          alt=""
           width={600}
           height={900}
         />

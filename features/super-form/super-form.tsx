@@ -8,7 +8,7 @@ import { Button } from "@/components/react-aria/Button";
 import { Heading, Text } from "@/components/react-aria/Content";
 import styles from "./super-form.module.scss";
 
-export default function ({ isInModal }: { isInModal: boolean }) {
+export function SuperForm({ isInModal }: { isInModal: boolean }) {
   const [{ errors, success }, formAction, pending] = useActionState(
     submitSuperForm,
     {

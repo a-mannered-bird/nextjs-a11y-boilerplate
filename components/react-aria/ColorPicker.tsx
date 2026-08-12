@@ -1,23 +1,26 @@
-'use client';
-import {Button} from 'react-aria-components/Button';
+"use client";
+import { Button } from "react-aria-components/Button";
 import {
   ColorPicker as AriaColorPicker,
-  type ColorPickerProps as AriaColorPickerProps
-} from 'react-aria-components/ColorPicker';
-import {DialogTrigger} from './Dialog';
-import {ColorSwatch} from './ColorSwatch';
-import {ColorSlider} from './ColorSlider';
-import {ColorArea} from './ColorArea';
-import {ColorField} from './ColorField';
-import {Popover} from './Popover';
-import './ColorPicker.scss';
+  type ColorPickerProps as AriaColorPickerProps,
+} from "react-aria-components/ColorPicker";
+import { DialogTrigger } from "./Dialog";
+import { ColorSwatch } from "./ColorSwatch";
+import { ColorSlider } from "./ColorSlider";
+import { ColorArea } from "./ColorArea";
+import { ColorField } from "./ColorField";
+import { Popover } from "./Popover";
+import "./ColorPicker.scss";
 
-export interface ColorPickerProps extends Omit<AriaColorPickerProps, 'children'> {
+export interface ColorPickerProps extends Omit<
+  AriaColorPickerProps,
+  "children"
+> {
   label?: string;
   children?: React.ReactNode;
 }
 
-export function ColorPicker({label, children, ...props}: ColorPickerProps) {
+export function ColorPicker({ label, children, ...props }: ColorPickerProps) {
   return (
     <AriaColorPicker {...props}>
       <DialogTrigger>
@@ -25,10 +28,18 @@ export function ColorPicker({label, children, ...props}: ColorPickerProps) {
           <ColorSwatch />
           <span>{label}</span>
         </Button>
-        <Popover hideArrow placement="bottom start" className="color-picker-dialog">
+        <Popover
+          hideArrow
+          placement="bottom start"
+          className="color-picker-dialog"
+        >
           {children || (
             <>
-              <ColorArea colorSpace="hsb" xChannel="saturation" yChannel="brightness" />
+              <ColorArea
+                colorSpace="hsb"
+                xChannel="saturation"
+                yChannel="brightness"
+              />
               <ColorSlider colorSpace="hsb" channel="hue" />
               <ColorField label="Hex" />
             </>

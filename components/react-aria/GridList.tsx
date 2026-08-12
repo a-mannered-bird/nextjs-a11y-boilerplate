@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import {
   Button,
   GridList as AriaGridList,
@@ -9,14 +9,18 @@ import {
   GridListHeader,
   type GridListItemProps,
   type GridListProps,
-  type GridListLoadMoreItemProps
-} from 'react-aria-components/GridList';
-import {Checkbox} from './Checkbox';
-import {GripVertical} from 'lucide-react';
-import {ProgressCircle} from './ProgressCircle';
-import './GridList.scss';
+  type GridListLoadMoreItemProps,
+} from "react-aria-components/GridList";
+import { Checkbox } from "./Checkbox";
+import { GripVertical } from "lucide-react";
+import { ProgressCircle } from "./ProgressCircle";
+import "./GridList.scss";
 
-export function GridList<T>({children, layout = 'grid', ...props}: GridListProps<T>) {
+export function GridList<T>({
+  children,
+  layout = "grid",
+  ...props
+}: GridListProps<T>) {
   return (
     <AriaGridList {...props} layout={layout}>
       {children}
@@ -27,13 +31,13 @@ export function GridList<T>({children, layout = 'grid', ...props}: GridListProps
 export function GridListItem({
   children,
   ...props
-}: Omit<GridListItemProps, 'children'> & {
+}: Omit<GridListItemProps, "children"> & {
   children?: React.ReactNode;
 }) {
-  let textValue = typeof children === 'string' ? children : undefined;
+  const textValue = typeof children === "string" ? children : undefined;
   return (
     <AriaGridListItem textValue={textValue} {...props}>
-      {({selectionMode, selectionBehavior, allowsDragging}) => (
+      {({ selectionMode, selectionBehavior, allowsDragging }) => (
         <>
           {/* Add elements for drag and drop and selection. */}
           {allowsDragging && (
@@ -41,7 +45,7 @@ export function GridListItem({
               <GripVertical size={16} />
             </Button>
           )}
-          {selectionMode === 'multiple' && selectionBehavior === 'toggle' && (
+          {selectionMode === "multiple" && selectionBehavior === "toggle" && (
             <Checkbox slot="selection" />
           )}
           {children}
@@ -59,4 +63,4 @@ export function GridListLoadMoreItem(props: GridListLoadMoreItemProps) {
   );
 }
 
-export {GridListSection, GridListHeader, Text};
+export { GridListSection, GridListHeader, Text };

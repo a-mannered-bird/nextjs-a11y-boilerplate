@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import {
   Button,
   Tree as AriaTree,
@@ -11,30 +11,36 @@ import {
   TreeLoadMoreItem as AriaTreeLoadMoreItem,
   type TreeLoadMoreItemProps,
   TreeSection as AriaTreeSection,
-  TreeHeader as AriaTreeHeader
-} from 'react-aria-components/Tree';
-import {ChevronRight, GripVertical} from 'lucide-react';
-import {Checkbox} from './Checkbox';
-import {ProgressCircle} from './ProgressCircle';
-import './Tree.scss';
+  TreeHeader as AriaTreeHeader,
+} from "react-aria-components/Tree";
+import { ChevronRight, GripVertical } from "lucide-react";
+import { Checkbox } from "./Checkbox";
+import { ProgressCircle } from "./ProgressCircle";
+import "./Tree.scss";
 
 export function Tree<T>(props: TreeProps<T>) {
   return <AriaTree {...props} />;
 }
 
 export function TreeItemContent(
-  props: Omit<TreeItemContentProps, 'children'> & {children?: React.ReactNode}
+  props: Omit<TreeItemContentProps, "children"> & {
+    children?: React.ReactNode;
+  },
 ) {
   return (
     <AriaTreeItemContent>
-      {({selectionBehavior, selectionMode, allowsDragging}: TreeItemContentRenderProps) => (
+      {({
+        selectionBehavior,
+        selectionMode,
+        allowsDragging,
+      }: TreeItemContentRenderProps) => (
         <>
           {allowsDragging && (
             <Button slot="drag">
               <GripVertical size={16} />
             </Button>
           )}
-          {selectionBehavior === 'toggle' && selectionMode !== 'none' && (
+          {selectionBehavior === "toggle" && selectionMode !== "none" && (
             <Checkbox slot="selection" />
           )}
           <Button slot="chevron">
@@ -52,7 +58,7 @@ export interface TreeItemProps extends Partial<AriaTreeItemProps> {
 }
 
 export function TreeItem(props: TreeItemProps) {
-  let textValue = typeof props.title === 'string' ? props.title : '';
+  const textValue = typeof props.title === "string" ? props.title : "";
   return (
     <AriaTreeItem textValue={textValue} {...props}>
       {props.title != null ? (
@@ -75,7 +81,9 @@ export function TreeLoadMoreItem(props: TreeLoadMoreItemProps) {
   );
 }
 
-export function TreeSection(props: React.ComponentProps<typeof AriaTreeSection>) {
+export function TreeSection(
+  props: React.ComponentProps<typeof AriaTreeSection>,
+) {
   return <AriaTreeSection {...props} />;
 }
 

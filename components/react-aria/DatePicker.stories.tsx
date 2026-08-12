@@ -1,5 +1,5 @@
 import { DatePicker } from "./DatePicker";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof DatePicker> = {
   component: DatePicker,

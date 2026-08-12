@@ -1,5 +1,5 @@
 import { Tag, TagGroup } from "./TagGroup";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof TagGroup> = {
   component: TagGroup,

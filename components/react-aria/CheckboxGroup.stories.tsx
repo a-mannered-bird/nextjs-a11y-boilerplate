@@ -1,6 +1,6 @@
 import { Checkbox } from "./Checkbox";
 import { CheckboxGroup } from "./CheckboxGroup";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof CheckboxGroup> = {
   component: CheckboxGroup,

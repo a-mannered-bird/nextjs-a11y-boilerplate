@@ -1,7 +1,7 @@
 import { Form } from "./Form";
 import { Button } from "./Button";
 import { TextField } from "./TextField";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof Form> = {
   component: Form,

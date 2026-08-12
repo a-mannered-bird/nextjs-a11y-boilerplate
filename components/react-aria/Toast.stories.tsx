@@ -1,6 +1,6 @@
 import { MyToastRegion, queue } from "./Toast";
 import { Button } from "./Button";
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs-vite";
 
 interface ToastStoryArgs {
   title: string;

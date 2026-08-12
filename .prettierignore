@@ -1,4 +1,8 @@
 .next
+
+# Agent tooling state, including nested git worktrees
+.claude
+
 out
 build
 coverage

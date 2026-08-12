@@ -1,7 +1,7 @@
 import { Tooltip, TooltipTrigger } from "./Tooltip";
 import { Button } from "./Button";
 import { Save } from "lucide-react";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof Tooltip> = {
   component: Tooltip,

@@ -1,5 +1,5 @@
 import { ColorArea } from "./ColorArea";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof ColorArea> = {
   component: ColorArea,

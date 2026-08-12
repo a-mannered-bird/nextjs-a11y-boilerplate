@@ -2,7 +2,7 @@ import { Button } from "./Button";
 import { CommandPalette } from "./CommandPalette";
 import { DialogTrigger } from "./Dialog";
 import { MenuItem } from "./Menu";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof CommandPalette> = {
   component: CommandPalette,

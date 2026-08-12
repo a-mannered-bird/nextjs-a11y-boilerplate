@@ -1,6 +1,6 @@
 import { ToggleButtonGroup } from "./ToggleButtonGroup";
 import { ToggleButton } from "./ToggleButton";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof ToggleButtonGroup> = {
   component: ToggleButtonGroup,

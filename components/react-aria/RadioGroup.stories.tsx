@@ -1,5 +1,5 @@
 import { RadioGroup, Radio } from "./RadioGroup";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof RadioGroup> = {
   component: RadioGroup,

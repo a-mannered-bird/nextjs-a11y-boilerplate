@@ -1,6 +1,6 @@
 import { Menu, MenuTrigger, MenuItem, SubmenuTrigger } from "./Menu";
 import { Button } from "./Button";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof Menu> = {
   component: Menu,

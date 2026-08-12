@@ -1,5 +1,5 @@
 import { Button } from "./Button";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof Button> = {
   component: Button,

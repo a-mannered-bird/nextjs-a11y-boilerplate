@@ -1,16 +1,20 @@
-'use client';
-import {Meter as AriaMeter, type MeterProps as AriaMeterProps} from 'react-aria-components/Meter';
-import {Label} from './Form';
-import './Meter.scss';
+"use client";
+import {
+  Meter as AriaMeter,
+  type MeterProps as AriaMeterProps,
+} from "react-aria-components/Meter";
+import type { CSSProperties } from "react";
+import { Label } from "./Form";
+import "./Meter.scss";
 
 export interface MeterProps extends AriaMeterProps {
   label?: string;
 }
 
-export function Meter({label, ...props}: MeterProps) {
+export function Meter({ label, ...props }: MeterProps) {
   return (
     <AriaMeter {...props}>
-      {({percentage, valueText}) => (
+      {({ percentage, valueText }) => (
         <>
           <Label>{label}</Label>
           <span className="value">{valueText}</span>
@@ -19,14 +23,14 @@ export function Meter({label, ...props}: MeterProps) {
               className="fill"
               style={
                 {
-                  width: percentage + '%',
-                  '--fill-color':
+                  width: percentage + "%",
+                  "--fill-color":
                     percentage < 70
-                      ? 'var(--green)'
+                      ? "var(--green)"
                       : percentage < 90
-                        ? 'var(--orange)'
-                        : 'var(--red)'
-                } as any
+                        ? "var(--orange)"
+                        : "var(--red)",
+                } as CSSProperties
               }
             />
           </div>

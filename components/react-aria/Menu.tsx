@@ -1,5 +1,5 @@
-'use client';
-import {Check, ChevronRight, Dot} from 'lucide-react';
+"use client";
+import { Check, ChevronRight, Dot } from "lucide-react";
 import {
   Menu as AriaMenu,
   MenuItem as AriaMenuItem,
@@ -13,17 +13,17 @@ import {
   type MenuProps,
   type MenuSectionProps,
   type MenuTriggerProps,
-  type SubmenuTriggerProps
-} from 'react-aria-components/Menu';
-import {Popover} from './Popover';
-import {Text} from './Content';
-import React from 'react';
-import './Menu.scss';
+  type SubmenuTriggerProps,
+} from "react-aria-components/Menu";
+import { Popover } from "./Popover";
+import { Text } from "./Content";
+import React from "react";
+import "./Menu.scss";
 
 export function MenuTrigger(props: MenuTriggerProps) {
-  let [trigger, menu] = React.Children.toArray(props.children) as [
+  const [trigger, menu] = React.Children.toArray(props.children) as [
     React.ReactElement,
-    React.ReactElement
+    React.ReactElement,
   ];
   return (
     <AriaMenuTrigger {...props}>
@@ -37,16 +37,19 @@ export function Menu<T>(props: MenuProps<T>) {
   return <AriaMenu {...props}>{props.children}</AriaMenu>;
 }
 
-export function MenuItem(props: Omit<MenuItemProps, 'children'> & {children?: React.ReactNode}) {
-  let textValue =
-    props.textValue || (typeof props.children === 'string' ? props.children : undefined);
+export function MenuItem(
+  props: Omit<MenuItemProps, "children"> & { children?: React.ReactNode },
+) {
+  const textValue =
+    props.textValue ||
+    (typeof props.children === "string" ? props.children : undefined);
   return (
     <AriaMenuItem {...props} textValue={textValue}>
-      {({hasSubmenu, isSelected, selectionMode}) => (
+      {({ hasSubmenu, isSelected, selectionMode }) => (
         <>
-          {isSelected && selectionMode === 'multiple' ? <Check /> : null}
-          {isSelected && selectionMode === 'single' ? <Dot /> : null}
-          {typeof props.children === 'string' ? (
+          {isSelected && selectionMode === "multiple" ? <Check /> : null}
+          {isSelected && selectionMode === "single" ? <Dot /> : null}
+          {typeof props.children === "string" ? (
             <Text slot="label">{props.children}</Text>
           ) : (
             props.children
@@ -63,9 +66,9 @@ export function MenuSection<T>(props: MenuSectionProps<T>) {
 }
 
 export function SubmenuTrigger(props: SubmenuTriggerProps) {
-  let [trigger, menu] = React.Children.toArray(props.children) as [
+  const [trigger, menu] = React.Children.toArray(props.children) as [
     React.ReactElement,
-    React.ReactElement
+    React.ReactElement,
   ];
   return (
     <AriaSubmenuTrigger {...props}>
@@ -77,4 +80,4 @@ export function SubmenuTrigger(props: SubmenuTriggerProps) {
   );
 }
 
-export {Text, Header, Separator, Keyboard};
+export { Text, Header, Separator, Keyboard };

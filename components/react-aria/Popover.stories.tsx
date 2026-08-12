@@ -4,7 +4,7 @@ import { DialogTrigger } from "./Dialog";
 import { Heading } from "./Content";
 import { HelpCircle } from "lucide-react";
 import "./styles.scss";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof Popover> = {
   component: Popover,

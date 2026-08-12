@@ -3,7 +3,7 @@ import {
   type TokenFieldSegment,
   TokenFieldValue,
 } from "react-aria-components/TokenField";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof TokenField> = {
   component: TokenField,
@@ -29,13 +29,13 @@ class TokenizingFieldValue extends TokenFieldValue {
   }
 
   static tokenize(text: string, tokenRegex: RegExp): TokenFieldValue {
-    let list = new this([], tokenRegex);
-    let segments = list.tokenize(text);
+    const list = new this([], tokenRegex);
+    const segments = list.tokenize(text);
     return new this(segments, tokenRegex);
   }
 
   createFieldValue(segments: TokenFieldSegment[]): this {
-    let Constructor = this.constructor as new (
+    const Constructor = this.constructor as new (
       tokens: TokenFieldSegment[],
       tokenRegex: RegExp,
     ) => this;
@@ -47,12 +47,12 @@ class TokenizingFieldValue extends TokenFieldValue {
       return [{ type: "text", text }];
     }
 
-    let tokenRegex = this.tokenRegex;
+    const tokenRegex = this.tokenRegex;
     tokenRegex.lastIndex = 0;
 
     let match: RegExpExecArray | null = null;
     let start = 0;
-    let segments: TokenFieldSegment[] = [];
+    const segments: TokenFieldSegment[] = [];
     while ((match = tokenRegex.exec(text))) {
       if (match.index > start) {
         segments.push({ type: "text", text: text.slice(start, match.index) });
@@ -71,9 +71,9 @@ class TokenizingFieldValue extends TokenFieldValue {
 
 class TagFieldValue extends TokenFieldValue {
   tokenize(text: string): TokenFieldSegment[] {
-    let parts = text.split(/[, \n]/);
+    const parts = text.split(/[, \n]/);
 
-    let segments: TokenFieldSegment[] = parts.map((part, i) => {
+    const segments: TokenFieldSegment[] = parts.map((part, i) => {
       if (i === parts.length - 1 || part.length === 0) {
         return { type: "text", text: part };
       }

@@ -1,5 +1,5 @@
 import { ColorSlider } from "./ColorSlider";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof ColorSlider> = {
   component: ColorSlider,

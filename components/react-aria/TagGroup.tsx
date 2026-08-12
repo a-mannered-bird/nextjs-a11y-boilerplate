@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import {
   Button,
   Tag as AriaTag,
@@ -6,17 +6,17 @@ import {
   type TagGroupProps as AriaTagGroupProps,
   TagList,
   type TagListProps,
-  type TagProps
-} from 'react-aria-components/TagGroup';
-import {Description, Label} from './Form';
-import {Text} from './Content';
-import {X} from 'lucide-react';
-import './TagGroup.scss';
+  type TagProps,
+} from "react-aria-components/TagGroup";
+import { Description, Label } from "./Form";
+import { Text } from "./Content";
+import { X } from "lucide-react";
+import "./TagGroup.scss";
 
 export interface TagGroupProps<T>
   extends
-    Omit<AriaTagGroupProps, 'children'>,
-    Pick<TagListProps<T>, 'items' | 'children' | 'renderEmptyState'> {
+    Omit<AriaTagGroupProps, "children">,
+    Pick<TagListProps<T>, "items" | "children" | "renderEmptyState"> {
   label?: string;
   description?: string;
   errorMessage?: string;
@@ -46,13 +46,17 @@ export function TagGroup<T>({
 export function Tag({
   children,
   ...props
-}: Omit<TagProps, 'children'> & {
+}: Omit<TagProps, "children"> & {
   children?: React.ReactNode;
 }) {
-  let textValue = typeof children === 'string' ? children : undefined;
+  const textValue = typeof children === "string" ? children : undefined;
   return (
-    <AriaTag textValue={textValue} {...props} className="react-aria-Tag button-base">
-      {({allowsRemoving}) => (
+    <AriaTag
+      textValue={textValue}
+      {...props}
+      className="react-aria-Tag button-base"
+    >
+      {({ allowsRemoving }) => (
         <>
           {children}
           {allowsRemoving && (

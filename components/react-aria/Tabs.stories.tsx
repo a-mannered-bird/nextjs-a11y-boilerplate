@@ -1,6 +1,6 @@
 import { Tabs, Tab, TabList, TabPanel, TabPanels } from "./Tabs";
 import { fn } from "storybook/test";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof Tabs> = {
   component: Tabs,

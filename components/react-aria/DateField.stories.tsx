@@ -1,5 +1,5 @@
 import { DateField } from "./DateField";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof DateField> = {
   component: DateField,

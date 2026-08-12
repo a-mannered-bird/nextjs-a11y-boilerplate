@@ -8,11 +8,11 @@ import {
 } from "@/components/react-aria/Disclosure";
 import { DisclosureGroup } from "@/components/react-aria/DisclosureGroup";
 import { Modal } from "@/components/react-aria/Modal";
-import SuperForm from "@/features/super-form/super-form";
-import SignatureCounter from "./SignatureCounter";
+import { SuperForm } from "@/features/super-form/super-form";
+import { SignatureCounter } from "./SignatureCounter";
 import styles from "./page.module.scss";
 
-export default function () {
+export default function FormPage() {
   return (
     <main>
       <Heading level={1}>My super form</Heading>

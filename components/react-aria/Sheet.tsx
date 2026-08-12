@@ -1,13 +1,18 @@
-'use client';
-import {Modal, ModalOverlay, type ModalOverlayProps, Heading} from 'react-aria-components/Modal';
-import {composeRenderProps} from 'react-aria-components/composeRenderProps';
-import {Dialog} from './Dialog';
-import './Sheet.scss';
+"use client";
+import {
+  Modal,
+  ModalOverlay,
+  type ModalOverlayProps,
+  Heading,
+} from "react-aria-components/Modal";
+import { composeRenderProps } from "react-aria-components/composeRenderProps";
+import { Dialog } from "./Dialog";
+import "./Sheet.scss";
 
 export function Sheet(props: ModalOverlayProps) {
   return (
     <ModalOverlay className="sheet-overlay">
-      {composeRenderProps(props.children, children => (
+      {composeRenderProps(props.children, (children) => (
         <Modal className="sheet">
           <Dialog>{children}</Dialog>
         </Modal>
@@ -16,4 +21,4 @@ export function Sheet(props: ModalOverlayProps) {
   );
 }
 
-export {Heading};
+export { Heading };

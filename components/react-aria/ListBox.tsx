@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import {
   ListBox as AriaListBox,
   ListBoxItem as AriaListBoxItem,
@@ -8,25 +8,30 @@ import {
   type ListBoxItemProps,
   type ListBoxLoadMoreItemProps,
   type ListBoxProps,
-  type ListBoxSectionProps
-} from 'react-aria-components/ListBox';
-import {composeRenderProps} from 'react-aria-components/composeRenderProps';
-import {Check} from 'lucide-react';
-import {Text} from './Content';
-import {ProgressCircle} from './ProgressCircle';
-import './ListBox.scss';
+  type ListBoxSectionProps,
+} from "react-aria-components/ListBox";
+import { composeRenderProps } from "react-aria-components/composeRenderProps";
+import { Check } from "lucide-react";
+import { Text } from "./Content";
+import { ProgressCircle } from "./ProgressCircle";
+import "./ListBox.scss";
 
-export function ListBox<T>({children, ...props}: ListBoxProps<T>) {
+export function ListBox<T>({ children, ...props }: ListBoxProps<T>) {
   return <AriaListBox {...props}>{children}</AriaListBox>;
 }
 
 export function ListBoxItem(props: ListBoxItemProps) {
-  let textValue =
-    props.textValue || (typeof props.children === 'string' ? props.children : undefined);
+  const textValue =
+    props.textValue ||
+    (typeof props.children === "string" ? props.children : undefined);
   return (
     <AriaListBoxItem {...props} textValue={textValue}>
-      {composeRenderProps(props.children, children =>
-        typeof children === 'string' ? <Text slot="label">{children}</Text> : children
+      {composeRenderProps(props.children, (children) =>
+        typeof children === "string" ? (
+          <Text slot="label">{children}</Text>
+        ) : (
+          children
+        ),
       )}
     </AriaListBoxItem>
   );
@@ -49,18 +54,23 @@ export function DropdownListBox<T>(props: ListBoxProps<T>) {
 }
 
 export function DropdownItem(props: ListBoxItemProps) {
-  let textValue =
-    props.textValue || (typeof props.children === 'string' ? props.children : undefined);
+  const textValue =
+    props.textValue ||
+    (typeof props.children === "string" ? props.children : undefined);
   return (
     <ListBoxItem {...props} textValue={textValue} className="dropdown-item">
-      {composeRenderProps(props.children, (children, {isSelected}) => (
+      {composeRenderProps(props.children, (children, { isSelected }) => (
         <>
           {isSelected && <Check />}
-          {typeof children === 'string' ? <Text slot="label">{children}</Text> : children}
+          {typeof children === "string" ? (
+            <Text slot="label">{children}</Text>
+          ) : (
+            children
+          )}
         </>
       ))}
     </ListBoxItem>
   );
 }
 
-export {Text, Header};
+export { Text, Header };

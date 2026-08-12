@@ -4,7 +4,7 @@ import { Group } from "react-aria-components/Group";
 import { Button } from "./Button";
 import { ToggleButton } from "./ToggleButton";
 import { Checkbox } from "./Checkbox";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof Toolbar> = {
   component: Toolbar,

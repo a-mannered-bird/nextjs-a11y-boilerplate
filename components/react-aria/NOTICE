@@ -28,3 +28,21 @@ to the files as distributed by Adobe:
    Where a stylesheet depended on another component's stylesheet (`./Form`,
    `./TextField`), the `@import` was changed to `@use`, since Sass `@import` is
    deprecated. No style declarations were added, removed or altered.
+
+3. Small changes to keep the repository's lint, type and formatting checks
+   passing, none of which alter component behaviour:
+   - Story files import story types from the framework package
+     (`@storybook/nextjs-vite`) rather than the renderer package
+     (`@storybook/react`).
+   - `GridList.stories.tsx`: `alt=""` added to the demo images, which are
+     decorative because each is labelled by the adjacent `<Text>` and by the
+     item's `textValue`.
+   - `Meter.tsx`, `ProgressBar.tsx`: the `as any` on inline styles carrying a CSS
+     custom property narrowed to `as CSSProperties`.
+   - `ColorWheel.tsx`: an empty `interface … extends Omit<…> {}` rewritten as an
+     equivalent type alias.
+   - Two unused declarations removed, `let` narrowed to `const` where never
+     reassigned, and the files formatted with the project's Prettier config.
+   - `CommandPalette.tsx`, `Dialog.stories.tsx`, `Modal.stories.tsx`: the three
+     `autoFocus` props annotated with a justified `jsx-a11y/no-autofocus`
+     suppression. The props themselves were not changed.

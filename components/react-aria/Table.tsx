@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import {
   Button,
   Collection,
@@ -19,14 +19,19 @@ import {
   TableLoadMoreItem as AriaTableLoadMoreItem,
   type TableLoadMoreItemProps,
   TableFooter as AriaTableFooter,
-  type TableFooterProps
-} from 'react-aria-components/Table';
-import {Group} from 'react-aria-components/Group';
-import {composeRenderProps} from 'react-aria-components/composeRenderProps';
-import {Checkbox} from './Checkbox';
-import {ProgressCircle} from './ProgressCircle';
-import {ChevronUp, ChevronDown, GripVertical, ChevronRight} from 'lucide-react';
-import './Table.scss';
+  type TableFooterProps,
+} from "react-aria-components/Table";
+import { Group } from "react-aria-components/Group";
+import { composeRenderProps } from "react-aria-components/composeRenderProps";
+import { Checkbox } from "./Checkbox";
+import { ProgressCircle } from "./ProgressCircle";
+import {
+  ChevronUp,
+  ChevronDown,
+  GripVertical,
+  ChevronRight,
+} from "lucide-react";
+import "./Table.scss";
 
 export function Table(props: TableProps) {
   return <AriaTable {...props} />;
@@ -36,17 +41,23 @@ interface ColumnProps extends AriaColumnProps {
   allowsResizing?: boolean;
 }
 
-export function Column(props: Omit<ColumnProps, 'children'> & {children?: React.ReactNode}) {
+export function Column(
+  props: Omit<ColumnProps, "children"> & { children?: React.ReactNode },
+) {
   return (
     <AriaColumn {...props} className="react-aria-Column button-base">
-      {({allowsSorting, sortDirection}) => (
+      {({ allowsSorting, sortDirection }) => (
         <div className="column-header">
           <Group role="presentation" tabIndex={-1} className="column-name">
             {props.children}
           </Group>
           {allowsSorting && (
             <span aria-hidden="true" className="sort-indicator">
-              {sortDirection === 'ascending' ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+              {sortDirection === "ascending" ? (
+                <ChevronUp size={16} />
+              ) : (
+                <ChevronDown size={16} />
+              )}
             </span>
           )}
           {props.allowsResizing && <ColumnResizer />}
@@ -56,8 +67,13 @@ export function Column(props: Omit<ColumnProps, 'children'> & {children?: React.
   );
 }
 
-export function TableHeader<T>({columns, children, ...otherProps}: TableHeaderProps<T>) {
-  let {selectionBehavior, selectionMode, allowsDragging} = useTableOptions();
+export function TableHeader<T>({
+  columns,
+  children,
+  ...otherProps
+}: TableHeaderProps<T>) {
+  const { selectionBehavior, selectionMode, allowsDragging } =
+    useTableOptions();
 
   return (
     <AriaTableHeader {...otherProps}>
@@ -66,21 +82,22 @@ export function TableHeader<T>({columns, children, ...otherProps}: TableHeaderPr
         <AriaColumn
           width={20}
           minWidth={20}
-          style={{width: 20}}
+          style={{ width: 20 }}
           className="react-aria-Column button-base"
         />
       )}
-      {selectionBehavior === 'toggle' && (
+      {selectionBehavior === "toggle" && (
         <AriaColumn
           width={32}
           minWidth={32}
-          style={{width: 32}}
+          style={{ width: 32 }}
           ///- begin highlight -///
           focusMode="child"
           allowsArrowNavigation
           ///- end highlight -///
-          className="react-aria-Column button-base">
-          {selectionMode === 'multiple' && <Checkbox slot="selection" />}
+          className="react-aria-Column button-base"
+        >
+          {selectionMode === "multiple" && <Checkbox slot="selection" />}
         </AriaColumn>
       )}
       <Collection items={columns}>{children}</Collection>
@@ -88,8 +105,8 @@ export function TableHeader<T>({columns, children, ...otherProps}: TableHeaderPr
   );
 }
 
-export function Row<T>({id, columns, children, ...otherProps}: RowProps<T>) {
-  let {selectionBehavior, allowsDragging} = useTableOptions();
+export function Row<T>({ id, columns, children, ...otherProps }: RowProps<T>) {
+  const { selectionBehavior, allowsDragging } = useTableOptions();
 
   return (
     <AriaRow id={id} {...otherProps}>
@@ -100,7 +117,7 @@ export function Row<T>({id, columns, children, ...otherProps}: RowProps<T>) {
           </Button>
         </Cell>
       )}
-      {selectionBehavior === 'toggle' && (
+      {selectionBehavior === "toggle" && (
         <Cell
           ///- begin highlight -///
           focusMode="child"
@@ -126,16 +143,19 @@ export function TableFooter<T>(props: TableFooterProps<T>) {
 export function Cell(props: CellProps) {
   return (
     <AriaCell {...props}>
-      {composeRenderProps(props.children, (children, {hasChildItems, isTreeColumn}) => (
-        <>
-          {isTreeColumn && hasChildItems && (
-            <Button slot="chevron">
-              <ChevronRight />
-            </Button>
-          )}
-          {children}
-        </>
-      ))}
+      {composeRenderProps(
+        props.children,
+        (children, { hasChildItems, isTreeColumn }) => (
+          <>
+            {isTreeColumn && hasChildItems && (
+              <Button slot="chevron">
+                <ChevronRight />
+              </Button>
+            )}
+            {children}
+          </>
+        ),
+      )}
     </AriaCell>
   );
 }
@@ -143,7 +163,13 @@ export function Cell(props: CellProps) {
 export function TableLoadMoreItem(props: TableLoadMoreItemProps) {
   return (
     <AriaTableLoadMoreItem {...props}>
-      <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
         <ProgressCircle isIndeterminate aria-label="Loading more..." />
       </div>
     </AriaTableLoadMoreItem>

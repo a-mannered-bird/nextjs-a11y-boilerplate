@@ -1,14 +1,17 @@
-'use client';
+"use client";
 import {
   ColorSwatchPicker as AriaColorSwatchPicker,
   ColorSwatchPickerItem as AriaColorSwatchPickerItem,
   type ColorSwatchPickerItemProps,
-  type ColorSwatchPickerProps
-} from 'react-aria-components/ColorSwatchPicker';
-import {ColorSwatch} from './ColorSwatch';
-import './ColorSwatchPicker.scss';
+  type ColorSwatchPickerProps,
+} from "react-aria-components/ColorSwatchPicker";
+import { ColorSwatch } from "./ColorSwatch";
+import "./ColorSwatchPicker.scss";
 
-export function ColorSwatchPicker({children, ...props}: ColorSwatchPickerProps) {
+export function ColorSwatchPicker({
+  children,
+  ...props
+}: ColorSwatchPickerProps) {
   return <AriaColorSwatchPicker {...props}>{children}</AriaColorSwatchPicker>;
 }
 

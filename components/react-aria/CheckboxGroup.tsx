@@ -1,18 +1,21 @@
-'use client';
+"use client";
 import {
   CheckboxGroup as AriaCheckboxGroup,
   type CheckboxGroupProps as AriaCheckboxGroupProps,
-  type ValidationResult
-} from 'react-aria-components/CheckboxGroup';
-import {Label, FieldError, Description} from './Form';
-import './CheckboxGroup.scss';
+  type ValidationResult,
+} from "react-aria-components/CheckboxGroup";
+import { Label, FieldError, Description } from "./Form";
+import "./CheckboxGroup.scss";
 
-export interface CheckboxGroupProps extends Omit<AriaCheckboxGroupProps, 'children'> {
+export interface CheckboxGroupProps extends Omit<
+  AriaCheckboxGroupProps,
+  "children"
+> {
   children?: React.ReactNode;
   label?: string;
   description?: string;
   errorMessage?: string | ((validation: ValidationResult) => string);
-  orientation?: 'horizontal' | 'vertical';
+  orientation?: "horizontal" | "vertical";
 }
 
 export function CheckboxGroup({
@@ -20,7 +23,7 @@ export function CheckboxGroup({
   description,
   errorMessage,
   children,
-  orientation = 'vertical',
+  orientation = "vertical",
   ...props
 }: CheckboxGroupProps) {
   return (

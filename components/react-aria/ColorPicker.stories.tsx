@@ -1,5 +1,5 @@
 import { ColorPicker } from "./ColorPicker";
-import type { Meta, StoryFn } from "@storybook/react";
+import type { Meta, StoryFn } from "@storybook/nextjs-vite";
 
 const meta: Meta<typeof ColorPicker> = {
   component: ColorPicker,

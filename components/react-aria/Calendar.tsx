@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import {
   Calendar as AriaCalendar,
   CalendarCell as AriaCalendarCell,
@@ -7,23 +7,28 @@ import {
   type CalendarProps as AriaCalendarProps,
   type DateValue,
   type CalendarCellProps,
-  type CalendarGridProps
-} from 'react-aria-components/Calendar';
-import {Text} from './Content';
-import {ChevronLeft, ChevronRight} from 'lucide-react';
-import {Button} from './Button';
-import './Calendar.scss';
+  type CalendarGridProps,
+} from "react-aria-components/Calendar";
+import { Text } from "./Content";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "./Button";
+import "./Calendar.scss";
 
-export interface CalendarProps<T extends DateValue> extends AriaCalendarProps<T> {
+export interface CalendarProps<
+  T extends DateValue,
+> extends AriaCalendarProps<T> {
   errorMessage?: string;
 }
 
-export function Calendar<T extends DateValue>({errorMessage, ...props}: CalendarProps<T>) {
-  let months = props.visibleDuration?.months || 1;
+export function Calendar<T extends DateValue>({
+  errorMessage,
+  ...props
+}: CalendarProps<T>) {
+  const months = props.visibleDuration?.months || 1;
   return (
     <AriaCalendar {...props}>
       <div className="months">
-        {Array.from({length: months}, (_, i) => (
+        {Array.from({ length: months }, (_, i) => (
           <div key={i} className="month">
             <header>
               {i === 0 && (
@@ -31,14 +36,16 @@ export function Calendar<T extends DateValue>({errorMessage, ...props}: Calendar
                   <ChevronLeft />
                 </Button>
               )}
-              <CalendarHeading offset={{months: i}} />
+              <CalendarHeading offset={{ months: i }} />
               {i === months - 1 && (
                 <Button slot="next" variant="quiet">
                   <ChevronRight />
                 </Button>
               )}
             </header>
-            <CalendarGrid offset={{months: i}}>{date => <CalendarCell date={date} />}</CalendarGrid>
+            <CalendarGrid offset={{ months: i }}>
+              {(date) => <CalendarCell date={date} />}
+            </CalendarGrid>
           </div>
         ))}
       </div>

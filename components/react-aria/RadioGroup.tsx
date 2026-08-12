@@ -1,18 +1,18 @@
-'use client';
+"use client";
 import {
   RadioGroup as AriaRadioGroup,
   RadioField,
   RadioButton,
   type RadioGroupProps as AriaRadioGroupProps,
   type ValidationResult,
-  type RadioFieldProps
-} from 'react-aria-components/RadioGroup';
-import {composeRenderProps} from 'react-aria-components/composeRenderProps';
-import {Label, FieldError, Description} from './Form';
-import './RadioGroup.scss';
-import './utilities.scss';
+  type RadioFieldProps,
+} from "react-aria-components/RadioGroup";
+import { composeRenderProps } from "react-aria-components/composeRenderProps";
+import { Label, FieldError, Description } from "./Form";
+import "./RadioGroup.scss";
+import "./utilities.scss";
 
-export interface RadioGroupProps extends Omit<AriaRadioGroupProps, 'children'> {
+export interface RadioGroupProps extends Omit<AriaRadioGroupProps, "children"> {
   children?: React.ReactNode;
   label?: string;
   description?: string;
@@ -44,7 +44,7 @@ export function Radio(props: RadioProps) {
   return (
     <RadioField {...props}>
       <RadioButton>
-        {composeRenderProps(props.children, children => (
+        {composeRenderProps(props.children, (children) => (
           <>
             <div className="indicator" />
             {children}

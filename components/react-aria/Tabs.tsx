@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import {
   Tabs as RACTabs,
   TabList as RACTabList,
@@ -10,10 +10,10 @@ import {
   type TabPanelProps,
   TabPanel as RACTabPanel,
   SelectionIndicator,
-  type TabPanelsProps
-} from 'react-aria-components/Tabs';
-import {composeRenderProps} from 'react-aria-components/composeRenderProps';
-import './Tabs.scss';
+  type TabPanelsProps,
+} from "react-aria-components/Tabs";
+import { composeRenderProps } from "react-aria-components/composeRenderProps";
+import "./Tabs.scss";
 
 export function Tabs(props: TabsProps) {
   return <RACTabs {...props} />;
@@ -26,7 +26,7 @@ export function TabList<T>(props: TabListProps<T>) {
 export function Tab(props: TabProps) {
   return (
     <RACTab {...props}>
-      {composeRenderProps(props.children, children => (
+      {composeRenderProps(props.children, (children) => (
         <>
           {children}
           <SelectionIndicator />

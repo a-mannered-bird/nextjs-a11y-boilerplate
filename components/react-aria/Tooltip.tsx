@@ -1,18 +1,18 @@
-'use client';
+"use client";
 import {
   OverlayArrow,
   Tooltip as AriaTooltip,
   type TooltipProps as AriaTooltipProps,
   TooltipTrigger as AriaTooltipTrigger,
-  type TooltipTriggerComponentProps
-} from 'react-aria-components/Tooltip';
-import './Tooltip.scss';
+  type TooltipTriggerComponentProps,
+} from "react-aria-components/Tooltip";
+import "./Tooltip.scss";
 
-export interface TooltipProps extends Omit<AriaTooltipProps, 'children'> {
+export interface TooltipProps extends Omit<AriaTooltipProps, "children"> {
   children: React.ReactNode;
 }
 
-export function Tooltip({children, ...props}: TooltipProps) {
+export function Tooltip({ children, ...props }: TooltipProps) {
   return (
     <AriaTooltip {...props}>
       <OverlayArrow>
