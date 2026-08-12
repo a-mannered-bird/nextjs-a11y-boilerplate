@@ -15,10 +15,7 @@ export default defineConfig({
   },
   projects: [{ name: "chromium", use: { ...devices["Desktop Chrome"] } }],
   webServer: {
-    // Production output, not `next dev`. Dev mode skips CSS chunking and
-    // minification and runs React in development, so it cannot tell us anything
-    // about what a user actually downloads.
-    command: `npm run build && npx next start -p ${PORT}`,
+    command: `npx next start -p ${PORT}`,
     url: baseURL,
     reuseExistingServer: !process.env.CI,
     timeout: 120_000,
