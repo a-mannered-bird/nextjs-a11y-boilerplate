@@ -138,7 +138,6 @@ each sees something the others cannot.
    duplicate ids and focus behaviour after a state change. Error states are in
    the list on purpose: they render least often and regress most easily.
 
-
 ### Pinned axe rule tags
 
 The E2E spec pins `wcag2a`, `wcag2aa`, `wcag21a` and `wcag21aa` rather than using
