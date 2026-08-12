@@ -94,12 +94,6 @@ html {
   height: 100%;
 }
 
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
 body {
   min-height: 100%;
   display: flex;
@@ -128,8 +122,18 @@ select {
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+  color: var(--link-color);
+  text-decoration: underline;
+  transition-property: color, text-decoration-thickness;
+  transition-duration: 200ms;
+
+  &:hover {
+    text-decoration-thickness: 1.5px;
+  }
+
+  &:active {
+    color: var(--link-color-pressed);
+  }
 }
 
 /* --- Focus --------------------------------------------------------------- */

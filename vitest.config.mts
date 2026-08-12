@@ -9,6 +9,20 @@ import { playwright } from "@vitest/browser-playwright";
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
   test: {
+    coverage: {
+      provider: "v8",
+      // lcov for tooling, text for the CI log, html for the uploaded artifact.
+      reporter: ["text", "html", "lcov"],
+      // Coverage is a signal about code written for this project, so the
+      // vendored kit and files with no logic to exercise are left out.
+      include: ["app/**", "features/**", "components/**"],
+      exclude: [
+        "components/react-aria/**",
+        "**/*.stories.tsx",
+        "**/*.d.ts",
+        "app/**/layout.tsx",
+      ],
+    },
     projects: [
       {
         // Logic only: validation rules, formatters, anything decidable without a

@@ -14,15 +14,18 @@ npm install
 npm run dev
 ```
 
-| Command             | What it does                                                |
-| ------------------- | ----------------------------------------------------------- |
-| `npm run verify`    | lint, format check, typecheck, tests. Run before commits.   |
-| `npm test`          | Every story in real Chromium with axe, plus any logic tests |
-| `npm run e2e`       | Builds, then runs Playwright against `next start`           |
-| `npm run storybook` | Storybook on port 6006                                      |
-| `npm run typecheck` | `next typegen && tsc --noEmit`                              |
+| Command                 | What it does                                                |
+| ----------------------- | ----------------------------------------------------------- |
+| `npm run verify`        | lint, format check, typecheck, tests. Run before commits.   |
+| `npm test`              | Every story in real Chromium with axe, plus any logic tests |
+| `npm run test:coverage` | `npm test` with a V8 coverage report over our own code      |
+| `npm run e2e`           | Builds, then runs Playwright against `next start`           |
+| `npm run storybook`     | Storybook on port 6006                                      |
+| `npm run typecheck`     | `next typegen && tsc --noEmit`                              |
 
-CI runs the same commands in the same order (`.github/workflows/ci.yml`).
+CI (`.github/workflows/ci.yml`) runs the same commands, takes coverage while it
+runs the tests, and additionally builds Storybook so a Storybook-only break
+cannot ship green.
 
 **[docs/code-quality.md](docs/code-quality.md)** catalogues every guardrail in the
 repository, what each one catches, where it is configured, and what is
@@ -39,12 +42,13 @@ rule makes `'use client'` on a page or layout a build failure, so the client
 boundary cannot quietly creep upwards.
 
 **Per component.** Every story runs in real Chromium via the Storybook Vitest
-addon with axe attached. Our own stories opt into `a11y.test = "error"`, so a
-violation fails the build.
+addon with axe attached. `a11y.test = "error"` is set globally, so a new story is
+gated without anyone remembering to opt in.
 
-**Per page.** One Playwright spec loads the rendered page and runs axe over it,
-which is the only layer that sees heading order, landmark structure, duplicate
-ids and focus behaviour after a state change.
+**Per page.** One Playwright spec runs axe over every route in its list —
+currently `/`, `/form` and a deliberate 404. This is the only layer that sees
+heading order, landmark structure, duplicate ids and focus behaviour after a
+state change. Adding a route to the list adds it to the scan.
 
 Both axe layers were verified by deliberately introducing a violation and
 confirming the suite went red, rather than by trusting a passing run.
@@ -109,9 +113,9 @@ already doing is duplication.
   by default.
 - **Structured data.** schema.org has no type that fits every page, and a wrong
   type is worse than none, so it is left to whatever is built on top of this.
-- **Metadata and `lang`.** `app/layout.tsx` still carries placeholder metadata and
-  `lang="en"`. Both are intentionally left for whatever is built on this, and both
-  should be set before anything ships.
+- **Coverage thresholds.** Coverage is measured and published as a CI artifact,
+  but no number gates the build. A threshold picked arbitrarily is worse than
+  none; set one once the code it measures is real.
 
 ## Tooling note
 

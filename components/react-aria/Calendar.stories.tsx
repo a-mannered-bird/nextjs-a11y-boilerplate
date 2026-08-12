@@ -5,6 +5,17 @@ const meta: Meta<typeof Calendar> = {
   component: Calendar,
   parameters: {
     layout: "centered",
+    a11y: {
+      options: {
+        rules: {
+          // Artifact of rendering the component in isolation. Its month nav is
+          // a bare <header>, which is only a `banner` landmark when it is not
+          // inside a sectioning element — true on the story canvas, never true
+          // on a page, where the calendar sits inside <main>.
+          "landmark-banner-is-top-level": { enabled: false },
+        },
+      },
+    },
   },
   tags: ["autodocs"],
 };

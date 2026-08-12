@@ -10,18 +10,25 @@ import { expect, test } from "@playwright/test";
 // why, so the exception is visible instead of the promise being quietly weakened.
 const WCAG_TAGS = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"];
 
-test("the form page has no detectable accessibility violations on load", async ({
-  page,
-}) => {
-  await page.goto("/form");
+// Every route the app serves, error states included: those are rendered least
+// often and regress most easily. A new route is added here, not to a new test,
+// so the scan grows with the app instead of drifting behind it.
+const ROUTES = ["/", "/form", "/this-route-does-not-exist"];
 
-  // Assert something rendered before scanning, so a blank page cannot pass.
-  await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
+for (const route of ROUTES) {
+  test(`${route} has no detectable accessibility violations on load`, async ({
+    page,
+  }) => {
+    await page.goto(route);
 
-  const { violations } = await new AxeBuilder({ page })
-    .withTags(WCAG_TAGS)
-    .analyze();
+    // Assert something rendered before scanning, so a blank page cannot pass.
+    await expect(page.getByRole("heading", { level: 1 })).toBeVisible();
 
-  // Mapped to strings so a failure names the rules instead of dumping axe nodes.
-  expect(violations.map((v) => `${v.id}: ${v.help}`)).toEqual([]);
-});
+    const { violations } = await new AxeBuilder({ page })
+      .withTags(WCAG_TAGS)
+      .analyze();
+
+    // Mapped to strings so a failure names the rules instead of dumping axe nodes.
+    expect(violations.map((v) => `${v.id}: ${v.help}`)).toEqual([]);
+  });
+}

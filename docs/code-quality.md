@@ -10,19 +10,23 @@ npm run e2e      # build, then Playwright against next start
 ```
 
 CI (`.github/workflows/ci.yml`) runs the same commands in the same order, so a
-green local run and a green pipeline mean the same thing.
+green local run and a green pipeline mean the same thing. It does two things a
+local `verify` does not: it takes a coverage report while running the tests, and
+it builds Storybook, so a break that only shows up in a Storybook build cannot
+reach `main` unnoticed.
 
 ## At a glance
 
-| Guardrail              | Command                | Configured in                    |
-| ---------------------- | ---------------------- | -------------------------------- |
-| Linting                | `npm run lint`         | `eslint.config.mjs`              |
-| Formatting             | `npm run format:check` | `.prettierrc`, `.prettierignore` |
-| Types                  | `npm run typecheck`    | `tsconfig.json`                  |
-| Logic tests            | `npm test`             | `vitest.config.mts`              |
-| Component tests + axe  | `npm test`             | `.storybook/`, story files       |
-| Journey test + axe     | `npm run e2e`          | `playwright.config.ts`, `e2e/`   |
-| Continuous integration | (on push and PR)       | `.github/workflows/ci.yml`       |
+| Guardrail              | Command                 | Configured in                    |
+| ---------------------- | ----------------------- | -------------------------------- |
+| Linting                | `npm run lint`          | `eslint.config.mjs`              |
+| Formatting             | `npm run format:check`  | `.prettierrc`, `.prettierignore` |
+| Types                  | `npm run typecheck`     | `tsconfig.json`                  |
+| Logic tests            | `npm test`              | `vitest.config.mts`              |
+| Component tests + axe  | `npm test`              | `.storybook/`, story files       |
+| Journey test + axe     | `npm run e2e`           | `playwright.config.ts`, `e2e/`   |
+| Coverage report        | `npm run test:coverage` | `vitest.config.mts`              |
+| Continuous integration | (on push and PR)        | `.github/workflows/ci.yml`       |
 
 ---
 
@@ -124,13 +128,15 @@ Accessibility is enforced at three independent points rather than one, because
 each sees something the others cannot.
 
 1. **Static**, at author time: the 34 lint rules above.
-2. **Per component**, in a real browser: axe runs against every story. Our own
-   story files set `parameters.a11y.test = "error"` so a violation fails the
-   build. Vendored stories stay on the global `"todo"`, so third-party violations
-   are reported without gating our pipeline on code we did not write.
-3. **Per page**, against production output: `@axe-core/playwright` scans the
-   rendered page. This is the only layer that sees heading order, landmark
-   structure, duplicate ids and focus behaviour after a state change.
+2. **Per component**, in a real browser: axe runs against every story.
+   `parameters.a11y.test = "error"` is set globally in `.storybook/preview.tsx`,
+   so a story added tomorrow is gated by default. The addon reads this parameter
+   only from the global, meta or story level — it cannot be scoped by path — so
+   the exceptions live in the story files that need them.
+3. **Per page**, against production output: `@axe-core/playwright` scans every
+   route listed in `e2e/a11y.spec.ts`, currently `/`, `/form` and a deliberate 404. This is the only layer that sees heading order, landmark structure,
+   duplicate ids and focus behaviour after a state change. Error states are in
+   the list on purpose: they render least often and regress most easily.
 
 ### Pinned axe rule tags
 
@@ -149,8 +155,12 @@ exception stays visible instead of quietly weakening the claim.
 One job, `.github/workflows/ci.yml`, on push to `main` and on every pull request.
 
 ```
-npm ci → install chromium → lint → format:check → typecheck → test → build + e2e
+npm ci → install chromium → lint → format:check → typecheck →
+test:coverage → build-storybook → build + e2e
 ```
+
+The coverage report uploads on every run and the Playwright report uploads on
+failure, so a red pipeline can be diagnosed without reproducing it locally.
 
 ## 7. Conventions enforced by documentation, not tooling
 
@@ -161,8 +171,9 @@ read by coding agents and by humans.
 
 Stated rather than hidden, because an unstated gap is worse than a known one.
 
-- **No coverage thresholds.** `@vitest/coverage-v8` is installed but never
-  configured or run. It should either be wired up or removed.
+- **No coverage thresholds.** Coverage now runs in CI and uploads as an artifact,
+  scoped to code written for this project. No number gates the build: a threshold
+  picked before the code it measures exists only teaches people to game it.
 - **No pre-commit hook.** Deliberate: it needs a dependency, slows every commit,
   and is not shared with anyone who clones the repository. CI is the enforcement
   point.
