@@ -67,3 +67,8 @@ to the files as distributed by Adobe:
      render a bare `<header>`, which is a `banner` landmark only when rendered
      outside a sectioning element — an artifact of the story canvas, not of the
      component in a page.
+
+6. Every hardcoded `system-ui` font family in the stylesheets was replaced
+   with `var(--font-family, system-ui)`, so an application can set a brand
+   font in one declaration rather than in 34 files. The boilerplate leaves
+   the custom property undeclared, so the rendered font is unchanged.

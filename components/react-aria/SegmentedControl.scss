@@ -23,7 +23,7 @@
     all: unset;
     display: block;
     color: var(--gray-1200);
-    font: var(--font-size) system-ui;
+    font: var(--font-size) var(--font-family, system-ui);
     font-weight: 500;
     height: var(--spacing-8);
     outline: none;

@@ -34,6 +34,11 @@ export default defineConfig({
           environment: "node",
           include: ["{app,features}/**/*.test.ts"],
         },
+        // Mirrors the `@/*` path in tsconfig.json; the storybook project gets
+        // it from the Next.js plugin, plain node needs it spelled out.
+        resolve: {
+          alias: { "@": import.meta.dirname },
+        },
       },
       {
         extends: true,

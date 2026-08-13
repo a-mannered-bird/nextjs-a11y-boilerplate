@@ -23,7 +23,7 @@
   .react-aria-Input {
     padding: var(--spacing-1);
     margin: 0;
-    font: var(--font-size) system-ui;
+    font: var(--font-size) var(--font-family, system-ui);
     color: var(--text-color);
     outline: none;
     border: none;

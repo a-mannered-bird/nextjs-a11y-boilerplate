@@ -12,7 +12,7 @@
     text-shadow: none;
     width: 100%;
     color: var(--text-color);
-    font: var(--font-size) system-ui;
+    font: var(--font-size) var(--font-family, system-ui);
     font-weight: 600;
     display: flex;
     align-items: center;

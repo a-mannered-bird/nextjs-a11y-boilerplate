@@ -12,7 +12,7 @@
   }
 
   .react-aria-Link {
-    font: var(--font-size) system-ui;
+    font: var(--font-size) var(--font-family, system-ui);
     color: var(--link-color-secondary);
     outline: none;
     position: relative;

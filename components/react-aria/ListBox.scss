@@ -7,7 +7,7 @@
   forced-color-adjust: none;
   outline: none;
   box-sizing: border-box;
-  font: var(--font-size) system-ui;
+  font: var(--font-size) var(--font-family, system-ui);
   color: var(--text-color);
 
   &:has(.react-aria-ListBoxSection) {
@@ -70,7 +70,7 @@
   outline: none;
   cursor: default;
   color: var(--text-color);
-  font: var(--font-size) system-ui;
+  font: var(--font-size) var(--font-family, system-ui);
   position: relative;
   display: flex;
   flex-direction: column;
@@ -270,7 +270,7 @@
   forced-color-adjust: none;
   outline: none;
   box-sizing: border-box;
-  font: var(--font-size) system-ui;
+  font: var(--font-size) var(--font-family, system-ui);
   color: var(--text-color);
 
   &[data-empty] {
@@ -291,7 +291,7 @@
   outline: none;
   cursor: default;
   color: var(--text-color);
-  font: var(--font-size) system-ui;
+  font: var(--font-size) var(--font-family, system-ui);
   font-weight: 500;
   position: relative;
   display: flex;

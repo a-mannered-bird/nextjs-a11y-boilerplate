@@ -1,6 +1,6 @@
 .react-aria-Heading {
   margin: 0;
-  font-family: system-ui;
+  font-family: var(--font-family, system-ui);
   font-weight: 600;
 
   &:is(h1) {

@@ -100,8 +100,9 @@ body {
   flex-direction: column;
   color: var(--foreground);
   background: var(--background);
-  /* Matches the font stack the react-aria stylesheets use throughout. */
-  font-family: system-ui, sans-serif;
+  /* The react-aria stylesheets resolve the same token, so controls and page
+     text share one stack. Declare --font-family to change both at once. */
+  font-family: var(--font-family, system-ui), sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
